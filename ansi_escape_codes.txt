@@ -1,0 +1,36 @@
+** Some of the codes are not supported in all platforms **
+
+All sequences start with hex '0x1b' / octal '033' + '[' + style code (separated by ';' if many) + 'm'.
+Examples:
+	'\033[31m' + str - will display str in foreground color red
+	'\033[1;33;42m' + str - will display str in bold, fg color yellow, bg color green
+
+- SGR (Select Graphic Rendition) Codes -
+
+0	reset
+1	bold
+2	faint
+3	italic
+4	underline
+28	crossed
+
+- Color Codes -
+
+FG BG
+30 40	black
+31 41	red
+32 42	green
+33 43	yellow
+34 44	blue
+35 45	magenta
+36 46	cyan
+37 47	white
+90 100	bright black
+91 101	bright red
+92 102	bright green
+93 103	bright yellow
+94 104	bright blue
+95 105	bright magenta
+96 106	bright cyan
+97 107	bright white
+

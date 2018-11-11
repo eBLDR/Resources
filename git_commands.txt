@@ -1,0 +1,69 @@
+## USER MANAGEMENT
+Set user name for global (all projects in machine, if not specified in project)
+git config --global user.name "Mona Lisa"
+
+Set user name for local project
+git config --local user.name "Mona Lisa"
+
+User user.email to set user's email
+
+## GIT LOCAL
+Create new repository in the current working directory
+git init
+
+Check status
+git status
+
+Show differences from local file and last commited file
+git diff file_name
+
+Add/remove file/s to the commit call - -a flag will add all
+git add <file_name>/-a
+git rm <file_name>
+
+Commit changes
+git commit -m <"msg">
+
+Shortcut for add and commit all
+git commit -a -m <"msg">
+
+See commit history
+git log
+
+Discard changes in working directory
+git checkout -- <file>
+
+Go back to previous versions
+git checkout <hash>
+
+Overwrite previous commit with a new commit
+git commit --amend -m <"msg">
+
+## GIT REMOTE
+Create repo
+git remote add origin https://github.com/username/new_repo_name
+
+Show remote url
+git remote show origin
+
+Remove remote url
+git remote remove origin
+
+Upload files
+git push -u origin master
+
+Download repo
+git clone <url>
+
+Download changes in files if any
+git pull <url>
+
+## IGNORE FILES
+Type path to ignored files in
+.gitignore
+
+Patterns
+ignoreme.txt - specific file
+*.ext - will match all files with the extension
+directory/ - whole directory
+

@@ -1,0 +1,27 @@
+-i = include HTTP headers
+-X = request method to use
+-H = set headers
+-d = data
+-v = will show headers
+-u "username:password" = username information
+
+GET
+curl -i -X GET <url_api>
+
+DELETE
+curl -i -X DELETE <url_api>
+
+POST (for PUT, just type PUT instead of POST)
+Without content
+curl -i -X POST <url_api>
+
+With content
+Form-urlencoded format
+curl -i -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'param1=value1&param2=value2&...' <url_api>
+
+json format
+curl -i -X POST -H "Content-Type: application/json" -d '{"key": "value", ...}' <url_api>
+
+if using files
+-d @data.txt
+-d @data.json

@@ -1,0 +1,58 @@
+.sh file is a Bourne shell script. They are used in many variations of UNIX-like operating systems.
+They have no "language" and are interpreted by the shell (interpreter of terminal commands) or if the first line (shebang line) is in the form:
+
+#!/path/to/interpreter
+
+they will use that particular interpreter. Usually, your file has the shebang line:
+
+	#!/bin/bash
+
+or
+
+	#!/usr/bin/env bash
+
+and that means that it uses Bourne Again Shell, so called bash.
+
+To pass arguments to a bash script, run:
+
+<script_name.sh> arg1 arg2 ...
+
+If argument's name contains a space, use "arg 1"
+
+Inside script_name.sh:
+
+	ARGUMENT1=$1
+	ARGUMENT2=$2
+	.
+	.
+	.
+	ARGUMENTn=$n
+
+Each argument will be assigned by order.
+If a variable number of arguments is passed, we can use a for loop:
+
+Inside script_name.sh:
+
+	for ARGUMENT1 in "$@"
+	do
+	<command> $ARGUMENT1
+	done
+
+We can pass arguments in any order using flags, running (any -flag can be used):
+
+<script_name.sh> -u <arg_a> -p <arg_b> -f <arg_c>
+
+Inside script_name.sh:
+
+	while getopts u:p:f: option
+	do
+	case "${option}"
+	in
+	u) ARGUMENT_NAME=${OPTARG};;
+	p) ARGUMENT_NAME=${OPTARG};;
+	f) ARGUMENT_NAME=${OPTARG};;
+	esac
+	done
+
+OPTARG refers that the argument is optional, so it may or it may not be passed
+

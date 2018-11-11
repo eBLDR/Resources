@@ -1,0 +1,22 @@
+- Character Encoding -
+
+Encoding scheme is the conversion table between sequences of bits and human readable characters.
+
+ASCII (American Standard Code for Information Interchange)
+Each character is stored in one byte (8 bits). It's binary compatible with Unicode, it's a subset of Unicode.
+
+A = 01000001
+B = 01000010
+C = 01000011
+
+UNICODE
+Is not an encoding, it's a table mapping characters to numbers. Contains 1,114,112 code points that can be used for all sorts of letters and symbols. These are written in hexadecimal, preceded by a U+.
+
+Ḁ has the Unicode code point U+1E00
+
+Encoding UNICODE
+UTF are variable length encodings.
+
+A in UTF-8 is  01000001
+A in UTF-16 is 00000000 01000001
+A in UTF-32 is 00000000 00000000 00000000 00000000 01000001
