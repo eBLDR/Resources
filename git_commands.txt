@@ -21,6 +21,9 @@ Add/remove file/s to the commit call - -a flag will add all
 git add <file_name>/-a
 git rm <file_name>
 
+Remove all stages changes
+git reset
+
 Commit changes
 git commit -m <"msg">
 
