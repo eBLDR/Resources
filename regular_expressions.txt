@@ -1,0 +1,37 @@
+- Character Classes -
+
+\d - matches any decimal digit; equivalent to the class [0-9].
+\D - matches any non-digit character; equivalent to the class [^0-9].
+\s - matches any whitespace character; equivalent to the class [ \t\n\r\f\v].
+\S - matches any non-whitespace character; equivalent to the class [^ \t\n\r\f\v].
+\w - matches any alphanumeric character and underscore; equivalent to the class [a-zA-Z0-9_].
+\W - matches any non-alphanumeric character nor underscore; equivalent to the class [^a-zA-Z0-9_]
+
+Personalized classes are possible: [\s,.] - will match \s, ',' and '.'
+
+If any of the special characters need to be used in the regex object for patter searching
+we will use the scape character \. e.g.: (r'(\(\d\d\d\))') will match (123), for example
+
+
+- Special Characters -
+
+Greedy by default:
+
+()  - to create groups - (r'(\d\d\d)-(\d\d\d)')
+|   - pipe, used to match one of many expressions - (r'Bat(man|mobile|copter)')
+?   - optionally matching character/group - (r'Bat(wo)?man')
+*   - match zero or more of the preceding character/group - (r'Bat(wo)*man')
++   - match one or more of the preceding character/group - (r'Bat(wo)+man')
+{}  - matching specific/range repetitions (greedy version) - (r'(Ha{3}') - (r'(Ha){3,5}')
+^   - beginning must match - (r'^Hello')
+$   - end must match - (r'\d$')
+[]  - to create character classes - (r'[aeiou]') - (r'[\d+ \w+]')
+[^] - to create negative character classes - (r'[^aeiou]')
+.   - wildcard, matches everything except for newline
+
+Non-greedy:
+
+{}? - non-greedy version of {} - (r'(Ha){3,5}?')
+*?  - non-greedy version of * 
++?  - non-greedy version of +
+
