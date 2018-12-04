@@ -1,0 +1,20 @@
+# Byte-compiled
+__pychache__/
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+VENV/
+.VENV/
+ENV/
+.ENV/
+
+# Logs
+*.log
+
+# Code editor
+.idea/
+
