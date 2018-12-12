@@ -7,6 +7,7 @@ git config --local user.name "Mona Lisa"
 
 User user.email to set user's email
 
+
 ## GIT LOCAL
 Create new repository in the current working directory
 git init
@@ -42,6 +43,7 @@ git checkout <hash>
 Overwrite previous commit with a new commit
 git commit --amend -m <"msg">
 
+
 ## GIT REMOTE
 Create repo
 git remote add origin https://github.com/username/new_repo_name
@@ -60,6 +62,24 @@ git clone <url>
 
 Download changes in files if any
 git pull <url>
+
+
+## BRANCHES
+Lists all local branches
+git branch
+
+Create new branch
+git branch <branch_name>
+
+Switches to specified branch
+git checkout <branch_name>
+
+Combines the specified branch's history into the current branch
+git merge <branch_name>
+
+Deletes the branch
+git branch -d <branc_name>
+
 
 ## IGNORE FILES
 Type path to ignored files in

@@ -5,6 +5,8 @@ services:
   service_1:
     build: .
     image: my_image
+    # restart: always will start the container on startup and on failure
+    restart: always
     command: python app.py
     environment:
       - ENVIRONMENT=local
