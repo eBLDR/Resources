@@ -10,8 +10,9 @@ docker info
 
 # List Docker images
 docker image ls
+docker image ls --all
 
-# List Docker containers (running, all)
+# List Docker containers (running)
 docker container ls
 docker container ls --all
 
@@ -33,4 +34,7 @@ docker container rm <container_id>
 
 # Remove specified image
 docker image rm <container_id>
+
+# Removes unused data, --all flag will remove all unused images not just dangling ones
+docker system prune --all
 
