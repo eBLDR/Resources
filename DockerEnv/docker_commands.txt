@@ -35,6 +35,6 @@ docker container rm <container_id>
 # Remove specified image
 docker image rm <container_id>
 
-# Removes unused data, --all flag will remove all unused images not just dangling ones
-docker system prune --all
+# Removes unused containers, imagers and networs, --volumes flag will remove also unused volumes, --all flag will remove all unused images not just dangling ones
+docker system prune --volumes --all
 
