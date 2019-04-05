@@ -78,7 +78,7 @@ Combines the specified branch's history into the current branch
 git merge <branch_name>
 
 Deletes the branch
-git branch -d <branc_name>
+git branch -d <branch_name>
 
 
 ## IGNORE FILES
