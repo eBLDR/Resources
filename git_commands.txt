@@ -19,7 +19,8 @@ Show differences from local file and last commited file
 git diff file_name
 
 Add/remove file/s to the commit call - -a flag will add all
-git add <file_name>/-a
+git add <file_name>
+git add -A
 git rm <file_name>
 
 Remove all stages changes
@@ -55,7 +56,9 @@ Remove remote url
 git remote remove origin
 
 Upload files
-git push -u origin master
+git push <remote> <branch>
+-u flag adds tracking reference for every branch that is up to date or pushed
+If branch does not exist in the repository, it will be created
 
 Download repo
 git clone <url>
@@ -89,4 +92,3 @@ Patterns
 ignoreme.txt - specific file
 *.ext - will match all files with the extension
 directory/ - whole directory
-
