@@ -3,18 +3,39 @@ version: '3'
 services:
 
   service_1:
+    # Working dir
     build: .
+
+    # Or
+    build:
+      # Working dir
+      context: .
+      # Dockerfile to be run
+      dockerfile: Dockerfile
+
     image: my_image
+
     # restart: always will start the container on startup and on failure
     restart: always
+
+    # Command to be run when service is up
     command: python app.py
+
+    # Env variables
     environment:
       - ENVIRONMENT=local
+
+    # Ports to expose
     ports:
       - "5000:5000"
+
     volumes:
       - .:/code
       - logvolume01:/var/log
+
+    # Services dependencies
+    depends_on:
+      - service_2
 
   service_2:
     image: my_image_2
