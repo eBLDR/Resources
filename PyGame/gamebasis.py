@@ -1,6 +1,10 @@
+import os
+
 import pygame
 
 # CONSTANTS
+SOURCE_PATH = 'src'
+
 MOUSE_LEFT = 1
 MOUSE_RIGHT = 3
 
@@ -39,56 +43,88 @@ class Entity(pygame.sprite.Sprite):
         # self.kill()
 
 
-def update_screen(screen, all_sprites, keys):
-    screen.fill(COLORS['WHITE'])
+class Screen:
+    def __init__(self, screen_size, background_color):
+        self.screen_size = screen_size
+        self.screen_bg_color = background_color
 
-    for entity in all_sprites:
-        entity.update(keys)
-        screen.blit(entity.image, entity.rect)
+        self.screen_surface = pygame.display.set_mode(self.screen_size, 0, 32)
+        pygame.display.set_caption('Title')
+        # icon = pygame.image.load('icon.png')
+        # pygame.display.set_icon(icon)
 
-    pygame.display.update()
+        self.screen_surface_background = None
+
+        self.init_screen(background_color)
+
+    def init_screen(self, background_color):
+        self.screen_surface.fill(background_color)
+
+        # Draw background screen
+
+        # Set screen background
+        self.screen_surface_background = self.screen_surface.copy()
 
 
-def main():
-    pygame.init()
+class GUI:
+    def __init__(self, screen_size, background_color=COLORS['WHITE']):
+        self.source_path = os.path.join(os.getcwd(), SOURCE_PATH)
 
-    screen = pygame.display.set_mode(SCREEN_SIZE, 0, 32)
-    pygame.display.set_caption('Game')
+        self.running = True
 
-    fps_clock = pygame.time.Clock()
+        self.screen = Screen(screen_size, background_color)
 
-    # Custom events
-    MYEVENT = pygame.USEREVENT + 1
-    pygame.time.set_timer(MYEVENT, 250)
+        self.all_sprites = pygame.sprite.Group()
 
-    all_sprites = pygame.sprite.Group()
+        self.clock = pygame.time.Clock()
 
-    running = True
+    def update_frame(self, keys):
+        # Clear sprites on previous frame
+        self.all_sprites.clear(
+            self.screen.screen_surface,
+            self.screen.screen_surface_background
+        )
 
-    while running:
-        fps_clock.tick(FPS)
+        # Update sprites
+        for entity in self.all_sprites:
+            entity.update(keys)
 
-        mouse_x, mouse_y = 0, 0
+        # Draw sprites
+        self.all_sprites.draw(self.screen.screen_surface)
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+        pygame.display.update()
 
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    running = False
+    def main(self):
+        # Custom events
+        MYEVENT = pygame.USEREVENT + 1
+        pygame.time.set_timer(MYEVENT, 250)
 
-            elif event.type == pygame.MOUSEBUTTONUP:
-                if event.button == MOUSE_LEFT:
-                    mouse_x, mouse_y = event.pos
+        while self.running:
 
-        keys = pygame.key.get_pressed()
+            mouse_x = mouse_y = 0
 
-        update_screen(screen, all_sprites, keys)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
 
-    pygame.quit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        self.running = False
+
+                elif event.type == pygame.MOUSEBUTTONUP:
+                    if event.button == MOUSE_LEFT:
+                        mouse_x, mouse_y = event.pos
+
+            keys = pygame.key.get_pressed()
+
+            self.update_frame(keys)
+
+            self.clock.tick(FPS)
 
 
 # Run
 if __name__ == '__main__':
-    main()
+    pygame.init()
+    gui = GUI(SCREEN_SIZE)
+    gui.main()
+    pygame.quit()
