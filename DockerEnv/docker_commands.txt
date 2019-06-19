@@ -38,3 +38,15 @@ docker image rm <container_id>
 # Removes unused containers, imagers and networs, --volumes flag will remove also unused volumes, --all flag will remove all unused images not just dangling ones
 docker system prune --volumes --all
 
+# Execute commands in docker container
+docker exec -it <container_id> <command>
+
+# To spawn a bash terminal inside the container, use /bin/bash as a <command>
+
+# Copying files from container to host
+docker cp <container_id>:<full_path_in_container> <full_path_in_host>
+
+# And viceversa
+docker cp <full_path_in_host> <container_id>:<full_path_in_container>
+
+
