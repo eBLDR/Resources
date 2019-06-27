@@ -7,6 +7,10 @@ docker-compose -f docker-compose.yml up
 # Builds, (re)creates, starts, and attaches to containers all services in YAML file, -f for filename flag
 docker-compose -f docker-compose.yml up
 
+# If no -f (file) is specified, will search for docker-compose.yml (default filename) in current directory
+
+# -d flag will run containers in detached mode, in the background
+
 # Creates containers for a service 
 docker-compose create
 
