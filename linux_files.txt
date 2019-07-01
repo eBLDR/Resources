@@ -1,0 +1,18 @@
+~/.bashrc
+    It is a shell script that is run when interactive shell session is started.
+    Allows to customize shell preferences and environment.
+
+~/.inputrc
+    It is the user configuration file of GNU read line functions.
+
+/etc/init.d/
+    This directory contains a number of start/stop scripts for various services on the system.
+
+/var/run/utmp
+    Users who are currently logged onto the system.
+
+/var/log/wtmp
+    History for utmp file.
+
+/etc/apt/sources.list
+    Sources for package management.
