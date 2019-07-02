@@ -1,6 +1,15 @@
+~/.profile
+    Shell script that is read by many login shells in the absence of their own
+    shell-specific config files.
+
+~/.bash_profile
+    Shell script that is executed when BASH login shell is started, configures
+    the shell before initial prompt. Allows to customize shell preferences and
+    environment variables.
+
 ~/.bashrc
-    It is a shell script that is run when interactive shell session is started.
-    Allows to customize shell preferences and environment.
+    Shell script that is run when interactive non-login shells are started,
+    executed every time a new instance of bash is started. Used for aliases.
 
 ~/.inputrc
     It is the user configuration file of GNU read line functions.
