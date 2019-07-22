@@ -10,7 +10,7 @@ def authenticate(username, password):
     """
     auth = False
     reason = ''
-    
+
     user = ''  # Fill me
 
     if user:
@@ -23,4 +23,3 @@ def authenticate(username, password):
         reason = 'Username not found.'
 
     return auth, reason
-

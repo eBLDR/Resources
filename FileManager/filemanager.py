@@ -33,4 +33,3 @@ class FileManager:
         file_path = self.get_file_path(file_name)
         if self.file_exists(file_path):
             os.unlink(file_path)
-

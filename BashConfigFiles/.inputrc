@@ -1,0 +1,8 @@
+# Global settings: /etc/inputrc
+# Local settings: ~/.inputrc
+
+# Case-insensitive
+set completion-ignore-case on
+
+# Display colors on possible auto completion
+set colored-stats on

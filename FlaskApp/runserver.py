@@ -1,5 +1,6 @@
-#! /usr/bin/python3
-#! -*- coding: utf8 -*-
+#!/usr/bin/python3
+# -*- coding: utf8 -*-
+
 """
 - By eBLDR -
 
@@ -11,4 +12,3 @@ from main.app import APP
 
 if __name__ == '__main__':
     APP.run(host=settings.APP_HOST, port=settings.APP_PORT)
-
