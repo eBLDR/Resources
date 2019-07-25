@@ -1,90 +1,97 @@
 ## USER MANAGEMENT
 Set user name for global (all projects in machine, if not specified in project)
-git config --global user.name "Mona Lisa"
+$ git config --global user.name "Mona Lisa"
 
 Set user name for local project
-git config --local user.name "Mona Lisa"
+$ git config --local user.name "Mona Lisa"
 
 User user.email to set user's email
 
 
 ## GIT LOCAL
 Create new repository in the current working directory
-git init
+$ git init
 
 Check status
-git status
+$ git status
 
 Show differences from local file and last commited file
-git diff file_name
+$ git diff file_name
 
 Add/remove file/s to the commit call - -a flag will add all
-git add <file_name>
-git add -A
+$ git add <file_name>
+$ git add -A
 
 Remove stages changes
-git reset HEAD <file>
+$ git reset HEAD <file>
 
 Commit changes
-git commit -m <"msg">
+$ git commit -m <"msg">
 
 Shortcut for add and commit all
-git commit -a -m <"msg">
+$ git commit -a -m <"msg">
 
 See commit history
-git log
+$ git log
 
 Discard changes in working directory
-git checkout -- <file>
+$ git checkout -- <file>
 
 Go back to previous versions
-git checkout <hash>
+$ git checkout <hash>
 
 Undo commit, preserves changes locally
-git reset <commit_hash>
+$ git reset <commit_hash>
 --hard flag to discard all changes (warning!)
 
 Overwrite previous commit with a new commit
-git commit --amend -m <"msg">
+$ git commit --amend -m <"msg">
+
+To revert some existing commits
+$ git revert <commit>
 
 
 ## GIT REMOTE
 Create repo
-git remote add origin https://github.com/username/new_repo_name
+$ git remote add origin https://github.com/username/new_repo_name
 
 Show remote url
-git remote show origin
+$ git remote show origin
 
 Remove remote url
-git remote remove origin
+$ git remote remove origin
 
 Upload files
-git push <remote> <branch>
+$ git push <remote> <branch>
 -u flag adds tracking reference for every branch that is up to date or pushed
 If branch does not exist in the repository, it will be created
 
 Download repo
-git clone <url>
+$ git clone <url>
 
 Download changes in files if any
-git pull <url>
+$ git pull <url>
 
 
 ## BRANCHES
 Lists all local branches
-git branch
+$ git branch
 
 Create new branch
-git branch <branch_name>
+$ git branch <branch_name>
 
 Switches to specified branch
-git checkout <branch_name>
+$ git checkout <branch_name>
 
 Combines the specified branch's history into the current branch
-git merge <branch_name>
+$ git merge <branch_name>
+
+Reapply commits on top of another base tip
+$ git rebase <branch_name>
+-i flag for interactive mode
 
 Deletes the branch
-git branch -d <branch_name>
+$ git branch -d <branch_name>
 
 
 ## IGNORE FILES

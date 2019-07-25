@@ -3,50 +3,48 @@
 # A container is a runtime instance of an image - what the image becomes in memory when executed. A container runs natively on Linux and shares the kernel of the host machine with other containers.
 
 # Installation test
-docker run hello-world
+$ docker run hello-world
 
 # Display info about containers active
-docker info
+$ docker info
 
 # List Docker images
-docker image ls
-docker image ls --all
+$ docker image ls
+$ docker image ls --all
 
 # List Docker containers (running)
-docker container ls
-docker container ls --all
+$ docker container ls
+$ docker container ls --all
 
 # Build a Dockerfile that is found in the working directory, -t flag can assign a tag
-docker build -t friendlytag .
+$ docker build -t friendlytag .
 
 # Running the app - mapping the port 4000 of localhost to the port of the container in which the app is running
 # Use -d flag for running in detached mode.
-docker run -p 4000:80 friendlytag
+$ docker run -p 4000:80 friendlytag
 
 # Gracefully stop the container - find the container id listing the containers
-docker container stop <container_id>
+$ docker container stop <container_id>
 
 # Force shutdown of the container
-docker container kill <container_id>
+$ docker container kill <container_id>
 
 # Remove specified container
-docker container rm <container_id>
+$ docker container rm <container_id>
 
 # Remove specified image
-docker image rm <container_id>
+$ docker image rm <container_id>
 
 # Removes unused containers, imagers and networs, --volumes flag will remove also unused volumes, --all flag will remove all unused images not just dangling ones
-docker system prune --volumes --all
+$ docker system prune --volumes --all
 
 # Execute commands in docker container
-docker exec -it <container_id> <command>
+$ docker exec -it <container_id> <command>
 
 # To spawn a bash terminal inside the container, use /bin/bash as a <command>
 
 # Copying files from container to host
-docker cp <container_id>:<full_path_in_container> <full_path_in_host>
+$ docker cp <container_id>:<full_path_in_container> <full_path_in_host>
 
 # And viceversa
-docker cp <full_path_in_host> <container_id>:<full_path_in_container>
-
-
+$ docker cp <full_path_in_host> <container_id>:<full_path_in_container>
