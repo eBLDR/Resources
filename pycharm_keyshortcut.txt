@@ -1,3 +1,5 @@
+# PyCharm IDE
+
 Shift + F10		- run from editor
 Shift + F9		- debug from editor
 F8			- in debug mode, step over to next line

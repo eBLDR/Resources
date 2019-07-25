@@ -1,3 +1,5 @@
+# Linux operating system
+
 ~/.profile
     Shell script that is read by many login shells in the absence of their own
     shell-specific config files.

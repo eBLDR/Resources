@@ -1,0 +1,34 @@
+# Terminator GNOME terminal
+
+Split terminal horizontally
+Ctrl + Shift + O
+
+Split terminal vertically
+Ctrl + Shift + E
+
+Terminal navigation
+Alt + <arrow>
+
+Terminal resize
+Ctrl + Shift + <arrow>
+
+Hide/show scroll bar
+Ctrl + Shift + S
+
+Close current terminal
+Ctrl + Shift + W
+
+Close all terminals
+Ctrl + Shift + Q
+
+Open new tab
+Ctrl + Shift + T
+
+Move to next/previous tab
+Ctrl + PageDown/PageUp
+
+Broadcast to all terminals
+Alt + A
+
+Broadcast Off
+Alt + O
