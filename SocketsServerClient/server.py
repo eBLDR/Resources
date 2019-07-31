@@ -71,6 +71,24 @@ class Server:
         conn.close()
         self.connections_lock.release()
 
+    def _send_data(self, conn, data):
+        try:
+            conn.sendall(data)
+        except Exception:
+            # Socket connection broken, client has killed its process
+            self.client_disconnected(conn)
+            raise
+
+    def reply_client(self, client_conn, data):
+        """
+        Send data to the producer socket.
+        :param client_conn: producer
+        :param data: data received by producer
+        :return: data replied by server
+        """
+        # Manage reply based on data
+        self._send_data(client_conn, data)  # ECHO
+
     def broadcast_data(self, producer_socket, msg):
         """
         Broadcasts the message to all clients except the master socket (server)
@@ -79,14 +97,9 @@ class Server:
         :param msg:
         :return:
         """
-        for sock in self.connections:
-            if sock != producer_socket and sock != self.server_socket:
-                try:
-                    sock.sendall(msg.encode(self.encoding))
-                except Exception:
-                    # Socket connection broken, client has killed its process
-                    self.client_disconnected(sock)
-                    raise
+        for conn in self.connections:
+            if conn != producer_socket and conn != self.server_socket:
+                self._send_data(conn, msg)
 
 
 if __name__ == '__main__':
