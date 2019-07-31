@@ -23,47 +23,71 @@ COLORS = {
 }
 
 
-class Entity(pygame.sprite.Sprite):
+class SpriteBase(pygame.sprite.Sprite):
     def __init__(self, init_x, init_y):
         super().__init__()
 
         self.image_path = ''  # TODO: fill me
         self.image = pygame.image.load(self.image_path).convert_alpha()
-        self.rect = self.image.get_rect(center=(init_x, init_y))
+        self.mask = pygame.mask.from_surface(self.image)
+        self.width, self.height = self.image.get_size()
 
         # If mask collision is intended
         self.mask = pygame.mask.from_surface(self.image)
 
+        # Attributes
+        self.position = (init_x, init_y)
         self.speed = None  # TODO: fill me
+
+        self.rect = self.get_rect()
+
+    def get_rect(self):
+        return self.image.get_rect(center=self.position)
 
     def update(self, pressed_keys):
         if pressed_keys[pygame.K_UP]:
+            # Update attributes here based on events
             pass
 
         # self.kill()
 
+        self.rect = self.get_rect()
+
+    def is_collision(self, x, y):
+        x -= self.rect.x
+        y -= self.rect.y
+
+        if 0 < x < self.width and 0 < y < self.height:
+            return self.mask.get_at((x, y))
+
 
 class Screen:
     def __init__(self, screen_size, background_color):
-        self.screen_size = screen_size
-        self.screen_bg_color = background_color
+        self.size = screen_size
+        self.background_color = background_color
 
-        self.screen_surface = pygame.display.set_mode(self.screen_size, 0, 32)
+        self.surface = pygame.display.set_mode(self.size, 0, 32)
+        self.surface_background = None
+
         pygame.display.set_caption('Title')
         # icon = pygame.image.load('icon.png')
         # pygame.display.set_icon(icon)
 
-        self.screen_surface_background = None
+        self.init(background_color)
 
-        self.init_screen(background_color)
+    def init(self, background_color):
+        self.surface.fill(background_color)
 
-    def init_screen(self, background_color):
-        self.screen_surface.fill(background_color)
-
-        # Draw background screen
+        # Draw background screen/sprites here
 
         # Set screen background
-        self.screen_surface_background = self.screen_surface.copy()
+        self.set_surface_background()
+
+    def set_surface_background(self):
+        self.surface_background = self.surface.copy()
+
+    def render_text(self, text, position):
+        self.surface.blit(text, position)
 
 
 class GUI:
@@ -81,8 +105,8 @@ class GUI:
     def update_frame(self, keys):
         # Clear sprites on previous frame
         self.all_sprites.clear(
-            self.screen.screen_surface,
-            self.screen.screen_surface_background
+            self.screen.surface,
+            self.screen.surface_background
         )
 
         # Update sprites
@@ -90,7 +114,7 @@ class GUI:
             entity.update(keys)
 
         # Draw sprites
-        self.all_sprites.draw(self.screen.screen_surface)
+        self.all_sprites.draw(self.screen.surface)
 
         pygame.display.update()
 
@@ -101,7 +125,7 @@ class GUI:
 
         while self.running:
 
-            mouse_x = mouse_y = 0
+            mouse_button = mouse_x = mouse_y = None
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -112,10 +136,14 @@ class GUI:
                         self.running = False
 
                 elif event.type == pygame.MOUSEBUTTONUP:
+                    mouse_x, mouse_y = event.pos
                     if event.button == MOUSE_LEFT:
-                        mouse_x, mouse_y = event.pos
+                        mouse_button = MOUSE_LEFT
 
             keys = pygame.key.get_pressed()
+
+            # Mouse position
+            mouse_x, mouse_y = pygame.mouse.get_pos()
 
             self.update_frame(keys)
 
