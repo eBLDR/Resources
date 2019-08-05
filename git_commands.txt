@@ -1,7 +1,7 @@
 # Git version control
 
 ## USER MANAGEMENT
-Set uQ5V33Wser name for global (all projects in machine, if not specified in project)
+Set user name for global (all projects in machine, if not specified in project)
 $ git config --global user.name "Mona Lisa"
 
 Set user name for local project
