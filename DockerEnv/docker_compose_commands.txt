@@ -11,6 +11,9 @@ $ docker-compose -f docker-compose.yml up <opt_service_name>
 # -d flag will run containers in detached mode, in the background
 # If opt_service_name is used, only that service will be "up"
 
+# Stops containers and removes containers, networks, volumes and images created by `up`
+$ docker-compose down
+
 # Creates containers for a service 
 $ docker-compose create
 
