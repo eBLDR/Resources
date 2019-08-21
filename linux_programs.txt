@@ -107,6 +107,9 @@ find <starting_point> <expression>
     Search for files in a directory hierarchy.
 
 # FOLDER/FILE MANIPULATION
+stat <file/file_system>
+    Display file/folder status, including last access/modification dates.
+
 mkdir <dir>
     Make directories.
 
