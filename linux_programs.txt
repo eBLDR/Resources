@@ -130,6 +130,9 @@ ln <source_file> <target_file>
     Make links between files.
     -s Make symbolic (soft) link instead of hard.
 
+unzip <file>
+    List, test, and extract compressed files in ZIP archive.
+
 tar <file>
     Manage compressed files.
     -t  List the contents of an archive.
