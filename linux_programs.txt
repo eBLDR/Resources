@@ -121,6 +121,7 @@ mv <source> <destination>
 
 cp <source> <destination>
     Copy files and directories.
+    -r  Copy directories recursively.
 
 rm <file>
     Remove (unlink) files and directories.
