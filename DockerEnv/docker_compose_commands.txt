@@ -2,7 +2,7 @@
 # It uses a YAML file to configure the app's services.
 
 # Will search for all the build inside the YAML file and build the Dockerfile for each image
-$ docker-compose -f docker-compose.yml build
+$ docker-compose -f docker-compose.yml build <opt_service_name>
 
 # Builds, (re)creates, starts, and attaches to containers all services in YAML file, -f for filename flag
 $ docker-compose -f docker-compose.yml up <opt_service_name>
@@ -28,3 +28,6 @@ $ docker-compose restart
 
 # Removes stopped service containers
 $ docker-compose rm
+
+# Run a one-time command against a service
+$ docker-compose run <service> <command>

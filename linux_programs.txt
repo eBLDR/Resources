@@ -1,0 +1,279 @@
+# HELP
+help <cmd>
+    Display information about builtin commands.
+
+man <cmd>
+    Display information about programs.
+
+# SYSTEM INFO
+who
+    Show who is logged on.
+
+w
+    Show who is logged on and what they are doing.
+
+whoami
+    Print effective user id.
+
+id
+    Print real and effective user and group IDs.
+
+uname
+    Print system information.
+    -a  Print all information.
+
+# HARDWARE INFO
+inxi
+    Display system information.
+    -F  Full output.
+    -m  Memory RAM usage.
+
+free
+    Display amount of used and free RAM memory.
+
+lscpu
+    Display information about the CPU architecture.
+
+df
+    Report file system disk space usage.
+
+lsblk
+    List block devices.
+
+lsusb
+    List USB devices.
+
+lspci
+    List all PCI devices.
+
+fdisk
+    Manipulate disk partition table.
+    -l  List the partition tables for the specified devices.
+
+# USERS
+passwd
+    Manage user password.
+
+sudo
+    Execute a command as another user.
+
+# SYSTEM
+sleep
+    Delay for a specified amount of time.
+
+login, logout
+    Write utmp and wtmp entries.
+
+exit <exit_code>
+    Cause normal process termination.
+
+suspend
+    Suspend shell execution.
+
+shutdown
+    Halt, power-off or reboot the machine.
+    now Immediate shutdown.
+    -H  Halt.
+    -r  Reboot.
+    -c  Cancel a pending shutdown.
+
+# NAVIGATION
+pwd
+    Print the name of the current working directory.
+
+dir
+    Display directory stack.
+
+ls
+    List directory contents.
+    -a Do not ignore entries starting with '.'.
+    -l List one file per line with extended information.
+    * Same as vdir *
+    -1 One entry for line.
+
+tree
+    List contents of directories in a tree-like format.
+    -a  All files are printed.
+    -d  List directories only.
+    -f  Prints the full path prefix for each file.
+
+cd <dir>
+    Change the shell working directory.
+
+which <command>
+    Locates a command.
+
+find <starting_point> <expression>
+    Search for files in a directory hierarchy.
+
+# FOLDER/FILE MANIPULATION
+stat <file/file_system>
+    Display file/folder status, including last access/modification dates.
+
+mkdir <dir>
+    Make directories.
+
+touch <file_name>
+    Create file.
+
+mv <source> <destination>
+    Move (rename) files.
+
+cp <source> <destination>
+    Copy files and directories.
+    -r  Copy directories recursively.
+
+rm <file>
+    Remove (unlink) files and directories.
+    -r  Remove directories and their contents recursively.
+
+ln <source_file> <target_file>
+    Make links between files.
+    -s Make symbolic (soft) link instead of hard.
+
+unzip <file>
+    List, test, and extract compressed files in ZIP archive.
+
+tar <file>
+    Manage compressed files.
+    -t  List the contents of an archive.
+    -x  Extract files from archive.
+    -c  Create a new archive, arguments supply the names of the files to be archived.
+
+# PERMISSIONS
+chmod <mode> <file>
+    Change file mode bits.
+
+chown <owner>:<group> <file>
+    Change file owner and group.
+    -R  Operate files and directories recursively.
+
+# FILE CONTENT
+wc <file>
+    Count newline, word, characters, and bytes.
+    -c Bytes count.
+
+cat <file>
+    Show file content.
+    -n  Number all output lines.
+
+less <file>
+    Show file content interactive.
+
+head <file>
+    Output the first part of the file.
+    -n  The first number of lines.
+
+tail <file>
+    Output the last part of the file.
+    -n  Number all output lines.
+    -f  Output appended data as the file grows.
+
+# FILTER
+grep <pattern> <file>
+    Print lines matching a pattern.
+    -i  Ignore case distinctions.
+
+# SHELL
+clear
+    Clear the terminal screen.
+
+echo <arguments>
+    Write arguments to the standard output.
+
+read
+    Read a line from the standard input and split it into fields.
+
+history
+    Shows terminal command history.
+
+alias <name>=<value>
+    Define or display aliases.
+    -p  Print all defined aliases.
+
+unalias <name>=<value>
+    Remove an entry from the list of defined aliases.
+
+export
+    Set export attribute for shell variables.
+    -p Display a list of all exported variables and functions.
+
+see
+    Execute programs via entries in the mailcap file.
+    The mailcap file is read by the metamail program to determine how to
+    display non-text at the local site.
+
+# PROCESSES
+ps
+    Report a snapshot of the current processes.
+    aux List all processes using BSD syntax.
+
+top
+    Display Linux processes.
+
+jobs
+    List the active jobs.
+    -l  Lists process ID in addition.
+
+fg <job_spec>
+    Move job to the foreground.
+
+bg <job_spec>
+    Move job to the background.
+
+kill <signal> <pid>
+    Send a signal to a process.
+    -l  List all available signal names.
+
+pkill <process_name>
+    Kills a process.
+
+systemctl <command> <service>
+    Control the systemd system and service manager.
+    list-units  List units that are currently in memory.
+    status      Show the status about one or more units.
+    start       Activate one or more units.
+    stop        Deactivate one or more units.
+    restart     Restart one or more units.
+    enable      Up service on reboot.
+    disable     Service won't up on reboot.
+
+wait <pid>
+    Wait for job completion and return exit status.
+
+# NETWORK
+hostname
+    Displays the system's DNS name.
+    -I  Display all network addresses of the host.
+
+hostnamectl
+    Control the system hostname.
+
+ip <object> <command>
+    Show / manipulate routing, devices, policy routing and tunnels.
+    address     Protocol address on a device.
+
+lsof
+    List all open files.
+    -i  List open connections - sockets.
+    -n  Inhibits the conversion of network numbers to host names.
+    -P  Inhibits the conversion of port numbers to port names.
+
+ping <hostname>
+    Send ICMP ECHO_REQUEST to network hosts.
+    -c <count>  Stop after sending <count> packets.
+
+traceroute
+    Display the route packets trace to network host.
+
+wget <url>
+    Non-interactive network downloader.
+    -0 <file>   The documents will be concatenated together and written to <file>.
+
+curl <url>
+    Transfer data from or to a server.
+
+# UTILS
+date
+    Print or set the system date and time.
+    -u  Print or set UTC.
