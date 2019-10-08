@@ -110,6 +110,11 @@ find <starting_point> <expression>
 stat <file/file_system>
     Display file/folder status, including last access/modification dates.
 
+du <path>
+    Displays estimate file space usage.
+    -h  Human readable output.
+    -s  Summary, display only total for each argument.
+
 mkdir <dir>
     Make directories.
 
