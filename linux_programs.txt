@@ -282,3 +282,9 @@ curl <url>
 date
     Print or set the system date and time.
     -u  Print or set UTC.
+
+xclip
+    Command line interface to X selections.
+    <program> | xclip  Copies the <program> output to xclip
+    -o  Print the selection from standard input or files
+    -selection  Specify which X selection to use ("clipboard")
