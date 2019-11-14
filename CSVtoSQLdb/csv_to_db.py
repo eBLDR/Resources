@@ -45,18 +45,18 @@ def read_file(path):
             # If the file is CSV - extract and create database
             if file_name.endswith('.csv'):
 
-            # Equivalent expression using indexes:
-            # if path[-3:] == 'csv':
-                
-                readCSV = csv.reader(file, delimiter=',')
+                # Equivalent expression using indexes:
+                # if path[-3:] == 'csv':
+
+                read_csv = csv.reader(file, delimiter=',')
 
                 print('Extracting records from {}...'.format(file_name))  # Control print
-                
+
                 # Extracting and storing the data from the file on a list
-                data = [record for record in readCSV]
+                data = [record for record in read_csv]
 
                 # Control print
-                print('Extraction completed.\n\t- Records extracted: {}'.format(readCSV.line_num - 1))
+                print('Extraction completed.\n\t- Records extracted: {}'.format(read_csv.line_num - 1))
 
                 return file_name, data
 
@@ -82,7 +82,7 @@ def create_db(file_name, data):
     # stripping of the '.' on its own to avoid accidentally stripping
     # possible matching characters with the sequence '.csv'
     db_filename = file_name.rstrip('csv').rstrip('.')
-    
+
     # Opening/creating database file object
     db = sqlite3.connect('{}.sqlite'.format(db_filename))
 
@@ -92,30 +92,34 @@ def create_db(file_name, data):
     r = 0
 
     header = True
+    fields = None
+
     for record in data:
 
-        # Creating table and columns - special treat to first record (header)
+        # Creating table and columns - special logic for first record (header)
         if header:
             header = False
-            
+
             # To clear the table every time, otherwise the INSERT will duplicate records
             # in case we run the script more than once
             db.execute('DROP TABLE IF EXISTS {}'.format(db_filename))
-            
+
             # Creating table
             db.execute('CREATE TABLE {} (id INTEGER PRIMARY KEY, {})'
-                       .format(db_filename, ", ".join(['%s TEXT' % column for column in record])))
+                       .format(db_filename, ', '.join(['%s TEXT' % column for column in record])))
 
             # Storing the names of the fields for future insertions
-            fields = ", ".join([field for field in record])
+            fields = ', '.join([field for field in record])
+
+            continue
 
         # Inserting records into the database
-        else:
-            db.execute('INSERT INTO {} ({}) VALUES ({})'
-                       .format(db_filename, fields, ", ".join([repr(column) for column in record])))
+        db.execute('INSERT INTO {} ({}) VALUES ({})'.format(
+            db_filename, fields, ', '.join([repr(column) for column in record]))
+        )
 
-            r += 1  # Updating the counter
-            
+        r += 1  # Updating the counter
+
     print('Insertion completed.\n\t- Records added: {}'.format(r))  # Control print
 
     # Committing changes and closing database file
@@ -131,18 +135,18 @@ def main(path):
         # Creating a database using the records previously extracted
         create_db(file_name, data)
 
-    
+
 if __name__ == '__main__':
     # Type the path of the file here -- TESTING/DEBUGGING ONLY, leave blank otherwise
     PATH = ''
 
     # -- GETTING THE PATH --
-    file_path = file_path = sys.argv[1] if len(sys.argv) == 2 else PATH if PATH else ''
+    file_path = sys.argv[1] if len(sys.argv) == 2 else PATH or ''
 
-    # -- RUNNING --
-    if file_path:
-        main(file_path)
-
-    else:
+    if not file_path:
         script_usage()
         print('No path provided.')
+        exit()
+
+    # -- RUNNING --
+    main(file_path)
