@@ -1,4 +1,5 @@
 # Use an official Python runtime as a parent image
+# The image will be searched locally first, and the in DockerHub repository
 FROM python:3.6-slim
 
 # Set the container working directory to /app

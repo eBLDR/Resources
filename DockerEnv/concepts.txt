@@ -11,12 +11,19 @@ Image
     and ship applications. Is an executable package that includes everything
     needed to run an application - the code, a runtime, libraries, environment
     variables, and configuration files.
+    Images are stored either locally or in DockerHub repository
+    (https://hub.docker.com).
 
 Container
     A standardized, encapsulated environment that runs applications.
     Is a runtime instance of an image - what the image becomes in memory when
     executed. A container runs natively on Linux and shares the kernel of the
     host machine with other containers.
+
+Service
+    Allows containers to be scaled across multiple Docker daemons. The result
+    is known as a 'swarm', a set of cooperating daemons that communicate
+    through the Docker API.
 
 Dockerfile
     Defines the app's environment. It must be in the project's top most level.
