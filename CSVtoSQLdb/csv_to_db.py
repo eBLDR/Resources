@@ -10,10 +10,10 @@ csv_to_db.py <absolute_path> - reads the file at <absolute_path> and extracts da
 
 Connecting to SQLite3 database, change connection to use different SQLs.
 """
-import sys
-import os
 import csv
+import os
 import sqlite3
+import sys
 
 
 def script_usage():

@@ -120,8 +120,8 @@ class GUI:
 
     def main(self):
         # Custom events
-        MYEVENT = pygame.USEREVENT + 1
-        pygame.time.set_timer(MYEVENT, 250)
+        my_event = pygame.USEREVENT + 1
+        pygame.time.set_timer(my_event, 250)
 
         while self.running:
 

@@ -17,7 +17,7 @@ $ git init
 Check status
 $ git status
 
-Show differences from local file and last commited file
+Show differences from local file and last committed file
 $ git diff file_name
 
 Add/remove file/s to the commit call - -a flag will add all

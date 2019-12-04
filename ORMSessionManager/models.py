@@ -7,13 +7,13 @@ BASE = declarative_base()
 
 
 # Custom declarative base
-class CUSTOMBASE(BASE):
+class CustomBase(BASE):
     __abstract__ = True
-    
+
     def to_dict(self):
         """
-	This method populates a dictionary with the attributes : values.
-	"""
+        This method populates a dictionary with the attributes : values.
+        """
         tmp = {}
         for i in self.__table__.columns:
             tmp[i.name] = getattr(self, i.name)
@@ -21,8 +21,7 @@ class CUSTOMBASE(BASE):
 
 
 # Tables
-class TABLE_NAME(CUSTOMBASE):
+class TableName(CustomBase):
     __tablename__ = 'TABLE_NAME'
-    
-    # Columns here
 
+    # Columns here

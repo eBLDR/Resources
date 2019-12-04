@@ -1,5 +1,5 @@
 """
-Connecting to MySQL localhost by default, change connectiong to use different DB.
+Connecting to MySQL localhost by default, change connection to use different DB.
 """
 
 from sqlalchemy import create_engine

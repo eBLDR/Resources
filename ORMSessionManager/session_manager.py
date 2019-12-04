@@ -10,16 +10,19 @@ PATH_TO_MODELS = 'models'
 MODELS = import_module(PATH_TO_MODELS)
 
 
-def session_manager(table_name, values=None, filters=None, create=False, read=False, update=False, delete=False):
+def session_manager(
+        table_name, values=None, filters=None, create_=False,
+        read_=False, update_=False, delete_=False
+):
     """
     Manages database connections.
     :param table_name: table's name to be accessed
     :param values: values for record
-    :param filter: filters for querying
-    :param create: True for create mode
-    :param read: True for read mode
-    :param update: True for update mode
-    :param delete: True for delete mode
+    :param filters: filters for querying
+    :param create_: True for create mode
+    :param read_: True for read mode
+    :param update_: True for update mode
+    :param delete_: True for delete mode
     """
     if values:
         validate_data(table_name, values)
@@ -32,33 +35,33 @@ def session_manager(table_name, values=None, filters=None, create=False, read=Fa
 
     try:
         table = getattr(MODELS, table_name)
-        if read:
+        if read_:
             buff = session.query(table)
             if filters:
                 buff = buff.filter_by(**filters)
             return buff
-        if not read:
-            if create:
+        if not read_:
+            if create_:
                 record = table(**values)
                 session.add(record)
-            if update or delete:
-                buff = session_manager(table_name, filters=filters, read=True).all()
-                if update:
+            if update_ or delete_:
+                buff = session_manager(table_name, filters=filters, read_=True).all()
+                if update_:
                     for record in buff:
                         record.update(values)
-                if delete:
+                if delete_:
                     for record in buff:
                         session.delete(record)
             session.commit()
     except Exception as exc:
         # Log error here
-        if not read:
+        if not read_:
             session.rollback()
         raise exc
     finally:
         session.close()
 
- 
+
 def validate_data(table_name, columns=None):
     """
     Validates data against database.
@@ -86,7 +89,7 @@ def create(table_name, values):
     :param table_name: table's name
     :param values: values of the new object
     """
-    session_manager(table_name, values=values, create=True)  
+    session_manager(table_name, values=values, create_=True)
 
 
 def read(table_name, filters=None):
@@ -96,7 +99,7 @@ def read(table_name, filters=None):
     :param filters: filters for query
     :return: fetched data
     """
-    return session_manager(table_name, filters=filters, read=True)
+    return session_manager(table_name, filters=filters, read_=True)
 
 
 def update(table_name, filters, new_values):
@@ -106,7 +109,7 @@ def update(table_name, filters, new_values):
     :param filters: filters for update
     :param new_values: values to be updated
     """
-    session_manager(table_name, filters=filters, values=new_values, update=True)
+    session_manager(table_name, filters=filters, values=new_values, update_=True)
 
 
 def delete(table_name, filters):
@@ -115,4 +118,4 @@ def delete(table_name, filters):
     :param table_name: table's name
     :param filters: filters for deletion
     """
-    session_manager(table_name, filters=filters, delete=True)
+    session_manager(table_name, filters=filters, delete_=True)

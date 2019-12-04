@@ -11,7 +11,7 @@ def authenticate(username, password):
     auth = False
     reason = ''
 
-    user = ''  # Fill me
+    user = ''  # Fill me - get user by username
 
     if user:
         hash_pwd = hashlib.md5(password.encode('utf-8')).hexdigest()
