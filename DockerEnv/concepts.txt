@@ -7,11 +7,13 @@ other through well-defined channels. All containers are run by a single
 operating-system kernel and are thus more lightweight than virtual machines.
 
 Image
-    Is an executable package that includes everything needed to run an
-    application - the code, a runtime, libraries, environment variables,
-    and configuration files.
+    A read-only template used to build containers. Images are used to store
+    and ship applications. Is an executable package that includes everything
+    needed to run an application - the code, a runtime, libraries, environment
+    variables, and configuration files.
 
 Container
+    A standardized, encapsulated environment that runs applications.
     Is a runtime instance of an image - what the image becomes in memory when
     executed. A container runs natively on Linux and shares the kernel of the
     host machine with other containers.
