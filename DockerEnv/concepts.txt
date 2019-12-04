@@ -1,0 +1,28 @@
+DOCKER
+Docker is a set of Platform as a Service (PaaS) products that use OS-level
+virtualization to develop, ship, deliver, and run applications in packages
+called 'containers'. Containers are isolated environments and bundle their
+own software, libraries and configuration files; they can communicate with each
+other through well-defined channels. All containers are run by a single
+operating-system kernel and are thus more lightweight than virtual machines.
+
+Image
+    Is an executable package that includes everything needed to run an
+    application - the code, a runtime, libraries, environment variables,
+    and configuration files.
+
+Container
+    Is a runtime instance of an image - what the image becomes in memory when
+    executed. A container runs natively on Linux and shares the kernel of the
+    host machine with other containers.
+
+Dockerfile
+    Defines the app's environment. It must be in the project's top most level.
+
+DOCKER-COMPOSE
+Compose is a tool for defining and running multi-container Docker applications.
+It uses a YAML file to configure the app's services.
+
+docker-compose.yml
+    Defines the services that make up the app, so they can be run together in an
+    isolated environment.

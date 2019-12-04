@@ -1,33 +1,34 @@
-# Compose is a tool for defining and running multi-container Docker applications.
-# It uses a YAML file to configure the app's services.
-
-# Will search for all the build inside the YAML file and build the Dockerfile for each image
+Will search for all the build inside the YAML file and build the Dockerfile
+for each image_
 $ docker-compose -f docker-compose.yml build <opt_service_name>
 
-# Builds, (re)creates, starts, and attaches to containers all services in YAML file, -f for filename flag
+Builds, (re)creates, starts, and attaches to containers all services in YAML
+file, -f for filename flag_
 $ docker-compose -f docker-compose.yml up <opt_service_name>
 
-# If no -f (file) is specified, will search for docker-compose.yml (default filename) in current directory
-# -d flag will run containers in detached mode, in the background
-# If opt_service_name is used, only that service will be "up"
+If no -f (file) is specified, will search for docker-compose.yml
+(default filename) in current directory.
+-d flag will run containers in detached mode, in the background
+If opt_service_name is used, only that service will be "up".
 
-# Stops containers and removes containers, networks, volumes and images created by `up`
+Stops containers and removes containers, networks, volumes and images
+created by `up`:
 $ docker-compose down
 
-# Creates containers for a service 
+Creates containers for a service:
 $ docker-compose create
 
-# Starts existing containers for a service
+Starts existing containers for a service:
 $ docker-compose start
 
-# Stops running containers without removing them
+Stops running containers without removing them:
 $ docker-compose stop
 
-# Restarts all stopped and running services
+Restarts all stopped and running services:
 $ docker-compose restart
 
-# Removes stopped service containers
+Removes stopped service containers:
 $ docker-compose rm
 
-# Run a one-time command against a service
+Run a one-time command against a service:
 $ docker-compose run <service> <command>

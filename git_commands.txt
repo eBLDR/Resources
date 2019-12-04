@@ -1,106 +1,110 @@
-# Git version control
+Git is a distributed version-control system fro tracking changes in source
+code during software development.
 
-## USER MANAGEMENT
-Set user name for global (all projects in machine, if not specified in project)
+
+USER MANAGEMENT
+Set user name for global (all projects in machine, if not specified in
+project):
 $ git config --global user.name "Mona Lisa"
 
-Set user name for local project
+Set user name for local project:
 $ git config --local user.name "Mona Lisa"
 
-User user.email to set user's email
+Use user.email to set user's email.
 
 
-## GIT LOCAL
-Create new repository in the current working directory
+GIT LOCAL
+Create new repository in the current working directory:
 $ git init
 
-Check status
+Check status:
 $ git status
 
-Show differences from local file and last committed file
+Show differences from local file and last committed file:
 $ git diff file_name
 
-Add/remove file/s to the commit call - -a flag will add all
+Add/remove file/s to the commit call:
 $ git add <file_name>
 $ git add -A
+-A flag will add all.
 
-Remove stages changes
+Remove stages changes:
 $ git reset HEAD <file>
 
-Commit changes
+Commit changes:
 $ git commit -m <"msg">
 
-Shortcut for add and commit all
+Shortcut for add and commit all:
 $ git commit -a -m <"msg">
 
-See commit history
+See commit history:
 $ git log
 
-Discard changes in working directory
+Discard changes in working directory:
 $ git checkout -- <file>
 
-Go back to previous versions
+Go back to previous versions:
 $ git checkout <hash>
 
 Undo commit, preserves changes locally
 $ git reset <commit_hash>
---hard flag to discard all changes (warning!)
+--hard flag to discard all changes (warning!).
 
-Overwrite previous commit with a new commit
+Overwrite previous commit with a new commit:
 $ git commit --amend -m <"msg">
 
-To revert some existing commits
+To revert some existing commits:
 $ git revert <commit>
 
 
-## GIT REMOTE
-Create repo
-$ git remote add origin https://github.com/username/new_repo_name
-
-Show remote url
-$ git remote show origin
-
-Remove remote url
-$ git remote remove origin
-
-Upload files
-$ git push <remote> <branch>
--u flag adds tracking reference for every branch that is up to date or pushed
-If branch does not exist in the repository, it will be created
-
-Download repo
-$ git clone <url>
-
-Download changes in files if any
-$ git pull <url>
-
-
-## BRANCHES
-Lists all local branches
+BRANCHES
+Lists all local branches:
 $ git branch
 
-Create new branch
+Create new branch:
 $ git branch <branch_name>
 
-Switches to specified branch
+Switches to specified branch:
 $ git checkout <branch_name>
 
-Combines the specified branch's history into the current branch
+Combines the specified branch's history into the current branch:
 $ git merge <branch_name>
 
-Reapply commits on top of another base tip
+Reapply commits on top of another base tip:
 $ git rebase <branch_name>
--i flag for interactive mode
+-i flag for interactive mode.
 
-Deletes the branch
+Deletes the branch:
 $ git branch -d <branch_name>
 
 
-## IGNORE FILES
-Type path to ignored files in
+GIT REMOTE
+Create repo:
+$ git remote add origin https://github.com/username/new_repo_name
+
+Show remote url:
+$ git remote show origin
+
+Remove remote url:
+$ git remote remove origin
+
+Upload files:
+$ git push <remote> <branch>
+-u flag adds tracking reference for every branch that is up to date or pushed.
+If branch does not exist in the repository, it will be created.
+
+Download repo:
+$ git clone <url>
+
+Download changes in files if any:
+$ git pull <url>
+
+
+IGNORE FILES
+Type path to ignored files in:
 .gitignore
 
-Patterns
+Patterns:
 ignoreme.txt - specific file
 *.ext - will match all files with the extension
 directory/ - whole directory

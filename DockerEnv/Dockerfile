@@ -1,5 +1,3 @@
-# Dockerfile defines what goes on in the environment inside your container, it must be in the top most level of the project.
-
 # Use an official Python runtime as a parent image
 FROM python:3.6-slim
 
@@ -17,9 +15,11 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
+# Many ports can be exposed
+# EXPOSE 5000 5002 5004
+
 # Define environment variable
 ENV NAME mydockerenv
 
 # Run this when the container launches - [application, filename]
 CMD ["python", "app.py"]
-

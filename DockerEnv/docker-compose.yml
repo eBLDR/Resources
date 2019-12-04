@@ -13,9 +13,11 @@ services:
       # Dockerfile to be run
       dockerfile: Dockerfile
 
+    # To directly specify an image
     image: my_image
 
-    # restart: always will start the container on startup and on failure
+    # restart: "always" will start the container on startup and on failure
+    # "no" is the default value - "on-failure" will restart only on failure
     restart: always
 
     # Command to be run when service is up
@@ -25,7 +27,7 @@ services:
     environment:
       - ENVIRONMENT=local
 
-    # Ports to expose
+    # Ports to expose - mapping from container to the outside world
     ports:
       - "5000:5000"
 
@@ -47,4 +49,3 @@ networks:
   default:
     external:
       name: my_network
-
