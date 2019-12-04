@@ -1,0 +1,65 @@
+Common file types
+
+CSV - Comma-Separated Values (.csv)
+Plain text files, used to store a large number of variables or data.
+They are arranged in lines, each line is called a 'record' and can
+contain multiple 'fields' separated by a comma ','.
+The principle is like the one of a spreadsheet.
+
+header1,header2
+record1A,record1B
+...,...
+recordnA,recordnB
+
+JSON - JavaScript Object Notation (.json)
+Plain text files, it was developed as a standard for web servers data,
+commonly used when providing web Application Programming Interface (API).
+It stores data in a dictionary-like file. It specifies a way to serialize
+(turn into a string) a dictionary or list, which then can be written to disk.
+A JSON file is both compact and human readable.
+JSON files are interchangeable between different languages.
+JSON strings MUST use double quotation ("").
+
+JSON Data Types:
+
+Number - double precision floating-point format in JavaScript
+String - double-quoted Unicode with backslash escaping
+Boolean - true or false
+Array - an ordered collection of values
+Value - it can be a string, a number, true or false, null etc
+Object - an unordered collection of key:value pairs
+Whitespace - can be used between any pair of tokens
+null - empty
+
+{
+  "key1": "value",
+  "key2": [
+    "value_1",
+    "value_2"
+  ]
+}
+
+
+YAML - YAML Ain't Markup Language (.yaml, .yml)
+A superset of JSON, plain text files. Commonly used for configuration files.
+YAML allows commenting using '#'. And aliasing / anchoring.
+':' is used for mapping key-value pairs.
+'{}' can be used for inline mapping.
+'-' is used for specifying a sequence.
+'[]' can be used for inline sequences.
+'|' is a literal block.
+
+config_1:
+  param_1: 12
+  param_2: alpha
+  collection:
+    - element_1
+    - element_2
+
+config_2:
+  param_1: &alias 24
+  param_n: *alias  # This is "anchoring", it will take the value of its alias
+  literal_block: |
+    This text will
+    respect all the new lines
+    and whitespaces.
