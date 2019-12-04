@@ -1,19 +1,18 @@
-# Use an official Python runtime as a parent image
-# The image will be searched locally first, and the in DockerHub repository
+# Use an image - The image will be searched locally first, and the in
+# DockerHub repository
 FROM python:3.6-slim
 
-# Set the container working directory to /app
+# Set the container working directory to <path>
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copy <src> from machine into the container <path>
 COPY . /app
+# ADD is an equivalent to COPY, but allows the source to be an URL
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+# Run a command inside the container
+RUN pwd
 
-# Any other commands can be typed here, starting with a RUN keyword
-
-# Make port 80 available to the world outside this container
+# Make port available to the world outside this container
 EXPOSE 80
 
 # Many ports can be exposed
