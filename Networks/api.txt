@@ -1,0 +1,29 @@
+API - Application Programming Interface
+Is an interface or communication protocol between different parts of a computer
+program intended to simplify the implementation and maintenance of software.
+
+
+REST - Representational State Transfer
+Is a software architectural style that defines a set of constraints to be used
+for creating web services.
+
+RESTful - web services that conform REST architecture
+
+A RESTful API uses HTTP requests to perform CRUD transactions (create, read,
+update, delete), using HTTP methods to manipulate the data.
+
+REST APIs have four types of parameters:
+
+    HEADER parameters: included in the request header, usually
+    related to authorization.
+
+    PATH parameters: within the endpoint's path.
+    http://abc.abc/<path_param>
+
+    QUERY STRING parameters: key-value pairs in the query string of the
+    endpoint, after the path parameters. Its definition starts with '?',
+    mapped by '=', and separated by '&'.
+    http://abc.abc/<path_param>?qry1=1&qry2=2
+
+    REQUEST BODY parameters: included in the request body. Usually submitted
+    as JSON file.

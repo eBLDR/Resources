@@ -1,0 +1,20 @@
+Client–server model is a distributed application structure that partitions
+tasks or workloads between the providers of a resource or service,
+called 'servers', and service requesters, called 'clients'.
+
+CLIENT
+A system that connects to a remote system to fetch data.
+Client workflow:
+    1. Create a socket.
+    2. Connect to remote server.
+    3. Send some data.
+    4. Receive a reply.
+
+SEVER
+A system that uses sockets to receive incoming connections and provide
+them with data. Server workflow:
+    1. Open a socket.
+    2. Bind to a address(and port).
+    3. Listen for incoming connections.
+    4. Accept connections.
+    5. Read/Send.
