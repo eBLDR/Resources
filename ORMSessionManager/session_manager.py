@@ -1,6 +1,4 @@
 """
-- By eBLDR -
-
 Session manager, CRUD transactions against DB.
 """
 from importlib import import_module

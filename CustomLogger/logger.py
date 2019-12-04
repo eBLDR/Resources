@@ -1,7 +1,3 @@
-"""
-- By eBLDR -
-"""
-
 import logging
 
 # Change me

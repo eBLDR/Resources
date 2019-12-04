@@ -1,6 +1,4 @@
 """
-- By eBLDR -
-
 Connecting to MySQL localhost by default, change connectiong to use different DB.
 """
 

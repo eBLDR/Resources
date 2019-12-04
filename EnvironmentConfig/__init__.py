@@ -1,6 +1,4 @@
 """
-- By eBLDR -
-
 Setting manager based on environment.
 
 One module for each env should exist - env_name.py

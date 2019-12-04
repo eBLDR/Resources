@@ -2,8 +2,6 @@
 # -*- coding: utf8 -*-
 
 """
-- By eBLDR -
-
 Flask App structure.
 """
 

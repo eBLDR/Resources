@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """
-- By eBLDR -
-
 Reading a file and, if file is CSV, importing the data in
 a relational database using SQLite3, in which the column's names
 correspond to the first record (header) found in the CSV file.
