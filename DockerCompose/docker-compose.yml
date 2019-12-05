@@ -1,19 +1,17 @@
+# Version of the config file
 version: '3'
 
 services:
 
   service_1:
-    # Working dir
-    build: .
-
-    # Or
+    # Build and run a local image
     build:
       # Working dir
       context: .
-      # Dockerfile to be run
+      # Image's Dockerfile
       dockerfile: Dockerfile
 
-    # To directly specify an image
+    # Or directly specify an existing image (either locally on in Docker Hub)
     image: my_image
 
     # restart: "always" will start the container on startup and on failure
@@ -46,6 +44,7 @@ services:
 volumes:
   logvolume01: {}
 
+# Virtual network information
 networks:
   default:
     external:
