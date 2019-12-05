@@ -29,11 +29,12 @@ Run an image (includes build if it's not already built):
 $ docker run <image_id|image_name[:tag]>
 -it flag for interactive mode, it will spawn a shell into the image.
 -d flag for running in detached mode.
--p publish a container’s port(s) to the host.
+-p publish a container’s port(s) to the host - <host_port>:<container_port>
 The following binds container's port 8080 to port 80 on 127.0.0.1 of the host
 machine:
 -p 127.0.0.1:80:8080
 --name flag to assign a name to container.
+-v to mount|bind volumes, <full_path_host|volume_name>:<container_path>
 
 List Docker containers (running):
 $ docker ps [-a]
@@ -71,3 +72,18 @@ $ docker cp <container_id>:<full_path_in_container> <full_path_in_host>
 
 And viceversa:
 $ docker cp <full_path_in_host> <container_id>:<full_path_in_container>
+
+Lists volumes:
+$ docker volume ls
+
+Create a volume:
+$ docker volume create <volume_name>
+
+Remove a volume:
+$ docker volume rm <volume_name>
+
+Inspect a volume:
+$ docker volume inspect <volume_name>
+
+Lists networks:
+$ docker network ls

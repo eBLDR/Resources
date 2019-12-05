@@ -36,6 +36,7 @@ VOLUME ["/data"]
 CMD ["executable","param1","param2"]
 # There can only be one CMD instruction in a Dockerfile. If more are found,
 # then only the last CMD will take effect.
+# The container stops when this process dies.
 
 # Allows to configure a container that will run as an executable:
 ENTRYPOINT ["executable", "param1", "param2"]
