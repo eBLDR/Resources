@@ -1,17 +1,21 @@
-DOCKER
+Docker is a tool designed to make it easier to deploy and run applications on
+any platform.
 Docker is a set of Platform as a Service (PaaS) products that use OS-level
 virtualization to develop, ship, deliver, and run applications in packages
 called 'containers'. Containers are isolated environments and bundle their
 own software, libraries and configuration files; they can communicate with each
 other through well-defined channels. All containers are run by a single
 operating-system kernel and are thus more lightweight than virtual machines.
+Docker has a client-server architecture, made of the client (using CLI or REST
+API), the server (Docker Daemom), and the containers running on the server. All these
+component together are called the Docker Engine.
 
 Image
     A read-only template used to build containers. Images are used to store
     and ship applications. Is an executable package that includes everything
     needed to run an application - the code, a runtime, libraries, environment
     variables, and configuration files.
-    Images are stored either locally or in DockerHub repository
+    Images are stored either locally or in DockerHub registry
     (https://hub.docker.com).
 
 Container
@@ -26,4 +30,5 @@ Service
     through the Docker API.
 
 Dockerfile
+    I a text file with instructions used to create Docker images.
     Defines the app's environment. It must be in the project's top most level.

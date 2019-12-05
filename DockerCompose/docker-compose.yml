@@ -4,14 +4,14 @@ services:
 
   service_1:
     # Working dir
-    build: ../Docker
+    build: .
 
     # Or
     build:
       # Working dir
-      context: ../Docker
+      context: .
       # Dockerfile to be run
-      dockerfile: ../Docker/Dockerfile
+      dockerfile: Dockerfile
 
     # To directly specify an image
     image: my_image
@@ -23,14 +23,15 @@ services:
     # Command to be run when service is up
     command: python app.py
 
-    # Env variables
+    # Env variables - key:value
     environment:
       - ENVIRONMENT=local
 
     # Ports to expose - mapping from container to the outside world
     ports:
-      - "5000:5000"
+      - "<host_port>:<container_port>"
 
+    # Attach a volume
     volumes:
       - .:/code
       - logvolume01:/var/log

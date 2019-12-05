@@ -1,6 +1,7 @@
 # Use an image - The image will be searched locally first, and the in
 # DockerHub repository:
 FROM <image>[:<tag>] [AS <name>]
+# FROM scratch - to use an image which is empty.
 
 # Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD
 # instructions that follow it in the Dockerfile. If the <path> doesn't exist,
@@ -12,10 +13,10 @@ WORKDIR <path>
 COPY <src> <dest>
 # ADD is an equivalent to COPY, but allows the source to be an URL
 
-# Run a command inside the container:
+# Run a command inside the container when the image is built:
 RUN <command>
 
-# `exec` form_
+# `exec` form:
 RUN ["executable", "param1", "param2"]
 
 # Informs that the container listens on the specified network ports at runtime:
@@ -31,7 +32,7 @@ ENV <key> <value>
 # externally mounted volumes from native host or other containers:
 VOLUME ["/data"]
 
-# Run this when the container launches:
+# Run this when the container launches (not when building):
 CMD ["executable","param1","param2"]
 # There can only be one CMD instruction in a Dockerfile. If more are found,
 # then only the last CMD will take effect.

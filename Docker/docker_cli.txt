@@ -1,37 +1,61 @@
 Installation test:
 $ docker run hello-world
 
-Display info about containers active:
+Display information:
 $ docker info
 
+Display stats of memory/CPU usage of containers (dynamic):
+$ docker stats
+
 List Docker images:
-$ docker image ls
-$ docker image ls --all
+$ docker images [-a]
+$ docker image ls [--all]
 
-List Docker containers (running):
-$ docker container ls
-$ docker container ls --all
+Details of image:
+$ docker image inspect <image_name>
 
-Build a Dockerfile that is found in the working directory, -t flag can assign
-a tag:
-$ docker build -t friendlytag .
-
-Running the app - mapping localhost's port to container's port
-(in which the app is running):
-$ docker run -p 4000:80 friendlytag
-Use -d flag for running in detached mode.
-
-Gracefully stop the container - find the container id listing the containers:
-$ docker container stop <container_id>
-
-Force shutdown of the container:
-$ docker container kill <container_id>
-
-Remove specified container:
-$ docker container rm <container_id>
+Pull Docker image:
+$ docker pull <image_name[:tag]>
 
 Remove specified image:
 $ docker image rm <container_id>
+-f force removal.
+
+Build a image from Dockerfile found in the working directory:
+$ docker build <path>
+-t flag can assign a <image_name[:tag]>.
+
+Run an image (includes build if it's not already built):
+$ docker run <image_id|image_name[:tag]>
+-it flag for interactive mode, it will spawn a shell into the image.
+-d flag for running in detached mode.
+-p publish a container’s port(s) to the host.
+The following binds container's port 8080 to port 80 on 127.0.0.1 of the host
+machine:
+-p 127.0.0.1:80:8080
+--name flag to assign a name to container.
+
+List Docker containers (running):
+$ docker ps [-a]
+$ docker container ls [--all]
+
+Start the container:
+$ docker container start <container_id|container_name>
+
+Restart the container:
+$ docker container restart <container_id|container_name>
+
+Gracefully stop the container:
+$ docker container stop <container_id|container_name>
+
+Force shutdown of the container:
+$ docker container kill <container_id|container_name>
+
+Remove specified container:
+$ docker container rm <container_id|container_name>
+
+See the disk space taken by Docker
+$ docker system df
 
 Removes unused containers, images and networks:
 $ docker system prune --volumes --all
@@ -40,7 +64,6 @@ $ docker system prune --volumes --all
 
 Execute commands in docker container:
 $ docker exec -it <container_id> <command>
-
 To spawn a bash terminal inside the container, use /bin/bash as a <command>.
 
 Copying files from container to host:
