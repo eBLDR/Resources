@@ -4,14 +4,14 @@ services:
 
   service_1:
     # Working dir
-    build: .
+    build: ../Docker
 
     # Or
     build:
       # Working dir
-      context: .
+      context: ../Docker
       # Dockerfile to be run
-      dockerfile: Dockerfile
+      dockerfile: ../Docker/Dockerfile
 
     # To directly specify an image
     image: my_image
