@@ -1,3 +1,5 @@
+# Compose file defines: services, volumes, and networks
+
 # Version of the config file
 version: '3'
 
@@ -5,21 +7,24 @@ services:
 
   service_1:
     # Build and run a local image
+    build: <path>  # It will search for Dockerfile in path
+
+    # Equivalent to
     build:
       # Working dir
-      context: .
+      context: <path>
       # Image's Dockerfile
-      dockerfile: Dockerfile
+      dockerfile: <Dockerfile_path>
 
     # Or directly specify an existing image (either locally on in Docker Hub)
-    image: my_image
+    image: <my_image>
 
     # restart: "always" will start the container on startup and on failure
     # "no" is the default value - "on-failure" will restart only on failure
     restart: always
 
     # Command to be run when service is up
-    command: python app.py
+    command: <executable> <param_1>
 
     # Env variables - key:value
     environment:
@@ -31,21 +36,29 @@ services:
 
     # Attach a volume
     volumes:
-      - .:/code
-      - logvolume01:/var/log
+      # By path
+      - <host_path>:<container_path>
+      - # Or by name
+      - <volume_name>:<container_path>
 
     # Services dependencies
     depends_on:
+      # Service here will be start even if not called directly
       - service_2
 
   service_2:
-    image: my_image_2
+    image: <image_name_2>
 
+# Create volumes
 volumes:
-  logvolume01: {}
+  # Volumes can take different options, but if set empty they will take the
+  # default configuration
+  <volume_name>:
+    external: true
+    name: <voume_name>
 
 # Virtual network information
 networks:
-  default:
-    external:
-      name: my_network
+  <network_name>:
+    external: true
+    name: <network_name>
