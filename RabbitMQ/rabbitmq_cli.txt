@@ -1,3 +1,0 @@
-Start a docker container with a running RabbitMQ and expose the
-default port 5672:
-$ docker run -p 5672:5672 --hostname nameko-rabbitmq rabbitmq:3
