@@ -10,6 +10,7 @@ $ docker stats
 List Docker images:
 $ docker images [-a]
 $ docker image ls [--all]
+-a flag will also show intermediate images (based on Docker image layering)
 
 Details of image:
 $ docker image inspect <image_name>
@@ -55,24 +56,6 @@ $ docker container kill <container_id|container_name>
 Remove specified container:
 $ docker container rm <container_id|container_name>
 
-See the disk space taken by Docker
-$ docker system df
-
-Removes unused containers, images and networks:
-$ docker system prune --volumes --all
---volumes flag will remove also unused volumes.
---all flag will remove all unused images not just dangling ones.
-
-Execute commands in docker container:
-$ docker exec -it <container_id> <command>
-To spawn a bash terminal inside the container, use /bin/bash as a <command>.
-
-Copying files from container to host:
-$ docker cp <container_id>:<full_path_in_container> <full_path_in_host>
-
-And viceversa:
-$ docker cp <full_path_in_host> <container_id>:<full_path_in_container>
-
 Lists volumes:
 $ docker volume ls
 
@@ -87,3 +70,24 @@ $ docker volume inspect <volume_name>
 
 Lists networks:
 $ docker network ls
+
+See the disk space taken by Docker
+$ docker system df
+
+Removes unused containers, images and networks:
+$ docker system prune --volumes --all
+--volumes flag will remove also unused volumes.
+--all flag will remove all unused images not just dangling ones.
+
+Clean only dangling images:
+$ docker rmi $(docker images -f "dangling=true" -q)
+
+Execute commands in docker container:
+$ docker exec -it <container_id> <command>
+To spawn a bash terminal inside the container, use /bin/bash as a <command>.
+
+Copying files from container to host:
+$ docker cp <container_id>:<full_path_in_container> <full_path_in_host>
+
+And viceversa:
+$ docker cp <full_path_in_host> <container_id>:<full_path_in_container>
