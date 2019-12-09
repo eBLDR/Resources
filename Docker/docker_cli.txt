@@ -60,7 +60,7 @@ Lists volumes:
 $ docker volume ls
 
 Create a volume:
-$ docker volume create <volume_name>
+$ docker volume create --name=<volume_name>
 
 Remove a volume:
 $ docker volume rm <volume_name>
@@ -70,6 +70,9 @@ $ docker volume inspect <volume_name>
 
 Lists networks:
 $ docker network ls
+
+Create network:
+$ docker network create <network_name>
 
 See the disk space taken by Docker
 $ docker system df
