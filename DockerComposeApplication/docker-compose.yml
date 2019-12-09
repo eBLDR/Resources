@@ -1,12 +1,19 @@
 version: '3'
 
 services:
+  database-service:
+    image: redis:5.0.7
+    ports:
+      - 6379:6379
+
   products-service:
     build: products
     volumes:
       - ./products:/usr/src/app
     ports:
       - 5001:80
+    depends_on:
+      - database-service
 
   website-service:
     build: website
