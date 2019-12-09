@@ -3,14 +3,14 @@ $ docker-compose config [-f <path>]
 
 Will search for all the build inside the YAML file and build the Dockerfile
 for each image:
-$ docker-compose [-f <path>] build [<service_name>]
+$ docker-compose [-f <path>] build [<service_name>, ...]
 -f flag for filename.
 If no -f (file) is specified, will search for ./docker-compose.yml (default
 filename) in current directory.
 
 Builds, (re)creates, starts, and attaches to containers all services in YAML
 file:
-$ docker-compose [-f <path>] up [<service_name>]
+$ docker-compose [-f <path>] up [<service_name>, ...]
 -d flag will run containers in detached mode, in the background.
 If <service_name> is used, only that service will be "up".
 --scale <service_name>=<n> it will create 'n' number of containers of the
