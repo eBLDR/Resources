@@ -1,6 +1,21 @@
-Default running port: 5672
+RabbitMQ is a message broker - it accepts and forwards messages.
+It is lightweight and easy to deploy on premises and in the cloud. It supports
+multiple messaging protocols. It runs on many operating systems and cloud
+environments.
 
-Run in Docker:
-$ docker run -p 5672:5672 rabbitmq[:tag]
+MESSAGE - is a binary blob of data.
+PRODUCER - the sender, the one that sends messages.
+CONSUMER - the receiver, the one that receives messages.
+QUEUE - the message buffer. Messages sent by producers are stored inside the
+queue, waiting for their consumers to receive them.
 
+Multiple producers can send messages to the same queue.
 
+Multiple consumers can subscribe to the same queue. By default, RabbitMQ will
+send each message to the next consumer, in sequence. On average every consumer
+will get the same number of messages. This way of distributing messages is
+called round-robin.
+
+Producer, consumer, and broker do not have to reside on the same host machine.
+
+Standard port: 5672

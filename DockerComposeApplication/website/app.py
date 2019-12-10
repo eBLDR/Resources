@@ -26,15 +26,15 @@ def index():
     )
 
 
-# Following code would usually be in another file
+# The following code would usually be in another file
 class ProductsServiceClient:
     """
     This app will communicate with products API.
     """
 
     def __init__(self):
-        # Docker-compose created a virtual network among the container, their host
-        # name matches their service name.
+        # Docker-compose created a virtual network among the container, their
+        # host name matches their service name.
         self.products_api_url = 'http://products-service'
 
     def get_products(self):

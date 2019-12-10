@@ -1,0 +1,21 @@
+Run in Docker:
+$ docker run -p 5672:5672 rabbitmq[:tag]
+
+Start application:
+$ rabbitmqctl start_app
+
+Stop application:
+$ rabbitmqctl stop_app
+
+Resets RabbitMQ node to its virgin status:
+$ rabbitmqctl reset
+
+List queues:
+$ rabbitmqctl list_queues [COLUMNS]
+Adding columns allows to display more or less options, common one are:
+name
+messages_ready
+messages_unacknowledged
+
+Shuts down the node, both RabbitMQ and its runtime:
+$ rabbitmqctl shutdown

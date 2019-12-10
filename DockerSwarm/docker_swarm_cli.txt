@@ -21,8 +21,8 @@ $ docker swarm leave
 [Following commands are only available in manager node.]
 Create services:
 $ docker service create --replicas <n> -p <container_port>:<host_port> --name
-<service_name> <image_name>
-<image_name> is the Docker image to be run.
+<service_name> <image_name> <command_to_run>
+<image_name> is the Docker image to build.
 --replicas will take an integer as argument, as it represents the number of
 instances of the same service that must be started.
 
@@ -41,6 +41,7 @@ the extra replicas will be run in another container inside an existing node.
 
 Display information of a node:
 $ docker node inspect <node_name>
+--pretty to display the output nicer.
 Use "self" to inspect current node.
 
 Updating a service:
