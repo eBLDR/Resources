@@ -1,0 +1,20 @@
+To simulate machines for Docker swarm development purposes.
+
+Create a new machine:
+$ docker-machine create --driver <driver_name> <machine_name>
+<driver_name> is usually "hyperv" for Linux/MacOS, and "virtualbox" for Windows
+
+Lists all machines:
+$ docker-machine ls
+
+Get machine's IP:
+$ docker-machine ip <machine_name>
+
+Connect to a machine:
+$ docker-machine ssh <machine_name>
+
+Stop a machine:
+$ docker-machine stop <machine_name>
+
+Remove a machine:
+$ docker-machine rm <machine_name>

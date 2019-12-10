@@ -1,0 +1,11 @@
+Docker Swarm is a clustering and scheduling tool for Docker containers.
+Docker Swarm can run and connect containers on multiple hosts.
+Machine is a swarm can be either physical or virtual.
+
+SWARM - is a group of machines that are running Docker and joined together
+into a cluster.
+NODE - refers to any machine that has joined the swarm.
+MANAGER - is the name given to the node that is managing the cluster. There can
+be multiple managers in a swarm, but only one of them will act as a leader,
+the rest will be backups in case the leaders falls.
+WORKER - is the name for all other nodes that are not managers.

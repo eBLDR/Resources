@@ -1,4 +1,5 @@
-Compose is a tool for defining and running multi-container Docker applications.
+Compose is a tool for defining and running multi-container Docker applications
+which all run on the same host machine.
 It uses a YAML file to configure the app's services. It can start/stop all
 services with a single command. It can scale selected serviced when required.
 

@@ -1,0 +1,55 @@
+[Any docker standard command will work in a manager node.]
+
+Initialise swarm:
+$ docker swarm init --advertise-add <manager_ip>
+<manager_ip> is the ip of the node acting as manager
+
+List all nodes in cluster - only available in manager node:
+$ docker node ls
+
+Get token for joining swarm as worker or manager - only available in manager node:
+$ docker swarm join-token <worker|manager>
+This will return a command with a token to be run in the other nodes that
+want to join the swarm.
+
+Join a swarm:
+$ docker swarm join --token <swarm_token> <manager_ip>
+
+Leave a swarm:
+$ docker swarm leave
+
+[Following commands are only available in manager node.]
+Create services:
+$ docker service create --replicas <n> -p <container_port>:<host_port> --name
+<service_name> <image_name>
+<image_name> is the Docker image to be run.
+--replicas will take an integer as argument, as it represents the number of
+instances of the same service that must be started.
+
+List running services:
+$ docker service ls
+
+List running container for a given service:
+$ docker service ps <service_name>
+
+Scale replicas of a service:
+$ docker service scale <service_name>=<n>
+Where <n> is an integer.
+It will set the number of replicas to given <n>.
+New replicas will be run in empty nodes. If there aren't empty nodes available,
+the extra replicas will be run in another container inside an existing node.
+
+Display information of a node:
+$ docker node inspect <node_name>
+Use "self" to inspect current node.
+
+Updating a service:
+$ docker service update [OPTIONS] <service_name>
+--image <image_name> to update image.
+Update will automatically handle the updating process node by node.
+
+Shutdown a node:
+$ docker node update --availability drain <node_name>
+
+Remove a service - it will remove the service from all nodes:
+$ docker service rm <service_name>
