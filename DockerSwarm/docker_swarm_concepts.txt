@@ -7,5 +7,5 @@ into a cluster.
 NODE - refers to any machine that has joined the swarm.
 MANAGER - is the name given to the node that is managing the cluster. There can
 be multiple managers in a swarm, but only one of them will act as a leader,
-the rest will be backups in case the leaders falls.
+the rest will be backups in case the leader falls.
 WORKER - is the name for all other nodes that are not managers.

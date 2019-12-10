@@ -29,7 +29,7 @@ class Product(Resource):
     def get(self, name):
         return get_product(name), 200
 
-    def put(self, name):
+    def patch(self, name):
         quantity = get_product(name)
 
         if quantity in [b'0', '0', 0]:
