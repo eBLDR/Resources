@@ -18,4 +18,18 @@ called round-robin.
 
 Producer, consumer, and broker do not have to reside on the same host machine.
 
+Exchange
+    On one side the exchange receives messages from producers, and the other
+    side it pushes them to queues. The exchange must know exactly what to do
+    with a message it receives. Should it be appended to a particular queue?
+    Should it be appended to many queues? Or should it get discarded.
+    The rules for that are defined by the exchange type.
+
+Exchange types
+    - Direct
+    - Topic
+    - Headers
+    - Fanout: broadcasts all the messages it receives to all the queues it
+    knows.
+
 Standard port: 5672

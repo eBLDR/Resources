@@ -19,3 +19,9 @@ messages_unacknowledged
 
 Shuts down the node, both RabbitMQ and its runtime:
 $ rabbitmqctl shutdown
+
+List exchanges:
+$ rabbitmqctl list_exchanges
+
+List bindings (queues bind to exchange):
+$ rabbitmqctl list_bindings
