@@ -38,8 +38,12 @@ services:
     volumes:
       # By path
       - <host_path>:<container_path>
-      - # Or by name
+      # Or by name
       - <volume_name>:<container_path>
+
+    # To join network/s
+    networks:
+      - <network_name>
 
     # Services dependencies
     depends_on:
@@ -59,6 +63,12 @@ volumes:
 
 # Virtual network information
 networks:
+  # Set up here default network if necessary
+  default:
+    # Joining an existing network
+    external:
+      name: <pre_existing_network_name>
+
+  # Create a new network
   <network_name>:
-    external: true
     name: <network_name>
