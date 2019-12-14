@@ -26,7 +26,8 @@ Exchange
     The rules for that are defined by the exchange type.
 
 Exchange types
-    - Direct
+    - Direct: message goes to the queues whose binding key exactly matches the
+    routing key of the message.
     - Topic
     - Headers
     - Fanout: broadcasts all the messages it receives to all the queues it
