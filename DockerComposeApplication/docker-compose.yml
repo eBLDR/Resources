@@ -2,7 +2,7 @@ version: '3'
 
 services:
   database-service:
-    image: redis:5.0.7
+    image: redis:latest
     ports:
       - 6379:6379
 
