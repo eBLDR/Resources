@@ -10,6 +10,18 @@ $ rabbitmqctl stop_app
 Resets RabbitMQ node to its virgin status:
 $ rabbitmqctl reset
 
+Shuts down the node, both RabbitMQ and its runtime:
+$ rabbitmqctl shutdown
+
+Display server information:
+$ rabbitmqctl status
+
+List connections:
+$ rabbitmqctl list_connections
+
+List users:
+$ rabbitmqctl list_users
+
 List queues:
 $ rabbitmqctl list_queues [COLUMNS]
 Adding columns allows to display more or less options, common one are:
@@ -17,8 +29,6 @@ name
 messages_ready
 messages_unacknowledged
 
-Shuts down the node, both RabbitMQ and its runtime:
-$ rabbitmqctl shutdown
 
 List exchanges:
 $ rabbitmqctl list_exchanges

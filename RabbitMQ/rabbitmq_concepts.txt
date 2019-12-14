@@ -34,3 +34,4 @@ Exchange types
     knows.
 
 Standard port: 5672
+AMPQ URI: amqp://{username}:{password}@{hostname}
