@@ -19,8 +19,11 @@ Pull Docker image:
 $ docker pull <image_name[:tag]>
 
 Remove specified image:
-$ docker image rm <container_id>
+$ docker image rm <image_name>
 -f force removal.
+
+Delete all dnagling images:
+$ docker rmi $(docker images -f "dangling=true" -q)
 
 Build a image from Dockerfile found in the working directory:
 $ docker build <path>
