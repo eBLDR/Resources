@@ -17,3 +17,9 @@ say-hi:
 
 help:
 	man make
+
+# Recursive invocation of make itself
+say-hi-again:
+	$(MAKE) say-hi
+
+# The value of this variable is the file name with which make was invoked
