@@ -12,6 +12,9 @@
 #   ...
 #   <command_n>
 
+# Defalt goal can be specified
+.DEFAULT_GOAL := say-hi
+
 say-hi:
 	echo hi
 
@@ -23,3 +26,10 @@ say-hi-again:
 	$(MAKE) say-hi
 
 # The value of this variable is the file name with which make was invoked
+
+# Variables can be created
+MY_VAR := whatsup
+
+# And called
+var:
+	echo $(MY_VAR)
