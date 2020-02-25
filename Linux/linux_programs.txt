@@ -209,6 +209,11 @@ see
     display non-text at the local site.
 
 # PROCESSES
+Ctrl+C - abort the running process.
+Ctrl+Z - stop the running process.
+<command> & - run the process in background directly.
+Its stdin, stdout, and stderr are still joined to the terminal.
+
 ps
     Report a snapshot of the current processes.
     aux List all processes using BSD syntax.
@@ -220,10 +225,10 @@ jobs
     List the active jobs.
     -l  Lists process ID in addition.
 
-fg <job_spec>
+fg [<job_id>]
     Move job to the foreground.
 
-bg <job_spec>
+bg <job_id>
     Move job to the background.
 
 kill <signal> <pid>
