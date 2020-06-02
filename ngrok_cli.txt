@@ -1,0 +1,43 @@
+NGROK - Public URLs for exposing your local web server.
+
+Config file default location:
+~/<username>/.ngrok2/ngrok.yml
+
+Start a HTTP tunnel forwarding to localhost:<port>
+$ ngrok http <port>
+
+Tunnel to specific host
+ngrok http <host>:<port>
+
+Inspecting traffic at:
+http://127.0.0.1:4040/
+
+Install Authtoken
+$ ngrok authtoken <YOUR_AUTHTOKEN>
+
+Custom subdomain name
+$ ngrok http -subdomain=<subdomain_name> <port>
+
+Password protecting tunnel, enforcing HTTP Basic Auth on all requests
+$ ngrok http -auth="<username>:<password>" <port>
+
+Specify custom config file:
+$ ngrok http -config=/<path_to_file>/ngrok.yml <port>
+
+Or:
+$ ngrok start <tunnel_name>
+
+Config file example:
+
+authtoken: 4nq9771bPxe8ctg7LKr_2ClH7Y15Zqe4bWLWF9p
+tunnels:
+  my-app:
+    proto: http
+    addr: 8000
+    subdomain: alan-httpbin
+  my-app-2:
+    proto: http
+    addr: 9090
+    hostname: demo.inconshreveable.com
+    auth: "demo:secret"
+    inspect: false
