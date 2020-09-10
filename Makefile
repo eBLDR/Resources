@@ -1,18 +1,27 @@
 # Make - utility to maintain groups of programs
 # Makefile is make's config file
-# <command> take bash commands
 
-# <alias_1>
-#   <command_1>
-#   ...
-#   <command_n>
+# Makefile consists of a set of rules. A rule generally looks like:
 
-# <alias_2>
-#   <command_1>
-#   ...
-#   <command_n>
+# targets : dependent
+#    command
+#    command
+#    command
 
-# Defalt goal can be specified
+# Targets are file names, separated by spaces. Typically,
+# there is only one per rule.
+
+# The commands are a series of steps typically used to make the target(s).
+# These are bash commands, and need to start with a tab character, not spaces.
+
+# The prerequisites are also file names, separated by spaces. These
+# files need to exist before the commands for the target are run.
+
+# make program allows you to use macros, which are similar to variables.
+# Macros are defined in a Makefile as = pairs.
+MACROS  = ":*)"
+
+# Default goal can be specified
 .DEFAULT_GOAL := say-hi
 
 say-hi:
