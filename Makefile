@@ -27,6 +27,9 @@ MACROS  = ":*)"
 say-hi:
 	echo hi
 
+	# To avoid echoing the echo
+	@echo hi
+
 help:
 	man make
 
