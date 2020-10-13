@@ -1,4 +1,4 @@
-from project_layout_template.manager.manager import Manager
+from manager import Manager
 
 
 def main():
