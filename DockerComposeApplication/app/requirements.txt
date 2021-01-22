@@ -1,3 +1,3 @@
-Flask
-flask_restful
+fastapi
+uvicorn[standard]
 redis
