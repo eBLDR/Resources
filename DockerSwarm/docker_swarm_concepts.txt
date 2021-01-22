@@ -1,6 +1,6 @@
 Docker Swarm is a clustering and scheduling tool for Docker containers.
 Docker Swarm can run and connect containers on multiple hosts.
-Machine is a swarm can be either physical or virtual.
+Machine is a swarm that can be either physical or virtual.
 
 SWARM - is a group of machines that are running Docker and joined together
 into a cluster.

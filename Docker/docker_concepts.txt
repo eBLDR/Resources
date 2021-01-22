@@ -41,6 +41,12 @@ Volumes
     Volumes allow to decouple a container from storage, to share storage among
     different containers, and attach a volume to a container.
 
+Network
+    Connecting different containers into a virtual network. Containers in the
+    same network can access one another via IP or via name if specified.
+    Networks use driver bridge by default, alternative options are: host,
+    overlay, etc.
+
 Dockerfile
-    I a text file with instructions used to create Docker images.
+    Text file with instructions used to create Docker images.
     Defines the app's environment. It must be in the project's top most level.

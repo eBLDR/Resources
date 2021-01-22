@@ -3,12 +3,10 @@ which all run on the same host machine.
 It uses a YAML file to configure the app's services. It can start/stop all
 services with a single command. It can scale selected serviced when required.
 
-Network
-    On `up` call, a virtual network is created named <project_name>_default,
-    and the containers join the network under the their <service_name>.
-    In this way, each container can access all of the others defined in the
-    same network.
-
 docker-compose.yml
     Defines the services that make up the app, so they can be run together in
     an isolated environment.
+
+Default network
+    On call `up` on the services a new network named <project_name>_default is
+    created, and the containers join the network under their <service_name>.

@@ -35,14 +35,14 @@ class ProductsServiceClient:
     def __init__(self):
         # Docker-compose created a virtual network among the container, their
         # host name matches their service name.
-        self.products_api_url = 'http://products-service'
+        self.app_api_url = 'http://app-service'
 
     def get_products(self):
         # Make a request to products service
         try:
-            return get(self.products_api_url).json()
+            return get(self.app_api_url).json()
         except ConnectionError:
-            return 'Products service is not available.'
+            return 'App service is not available.'
 
 
 if __name__ == '__main__':

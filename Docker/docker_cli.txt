@@ -65,17 +65,26 @@ $ docker volume ls
 Create a volume:
 $ docker volume create --name=<volume_name>
 
-Remove a volume:
-$ docker volume rm <volume_name>
-
 Inspect a volume:
 $ docker volume inspect <volume_name>
+
+Remove a volume:
+$ docker volume rm <volume_name>
 
 Lists networks:
 $ docker network ls
 
-Create network:
+Create user-defined network:
 $ docker network create <network_name>
+
+Inspect network:
+$ docker network inspect <network_name>
+
+Connect container to a network:
+$ docker network connect <network_name> <container_name>
+
+Remove a network:
+$ docker network rm <network_name>
 
 See the disk space taken by Docker
 $ docker system df
@@ -89,11 +98,20 @@ Clean only dangling images:
 $ docker rmi $(docker images -f "dangling=true" -q)
 
 Execute commands in docker container:
-$ docker exec -it <container_id> <command>
-To spawn a bash terminal inside the container, use /bin/bash as a <command>.
+$ docker exec -it <container_id|container_name> <command>
+
+Useful exmaples:
+To spawn a bash terminal inside the container:
+$ docker exec -it <container_id|container_name> /bin/bash
+
+Pinging one container to another:
+$ docker exec -it <container_id|container_name> ping <dest_container_id|dest_container_name>
 
 Copying files from container to host:
-$ docker cp <container_id>:<full_path_in_container> <full_path_in_host>
+$ docker cp <container_id|container_name>:<full_path_in_container> <full_path_in_host>
 
 And viceversa:
 $ docker cp <full_path_in_host> <container_id>:<full_path_in_container>
+
+Attaching terminal’s standard input, output, and error to a running container
+$ docker attach <container_id|container_name>

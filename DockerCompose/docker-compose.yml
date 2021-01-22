@@ -49,6 +49,7 @@ services:
       - <volume_name>:<container_path>
 
     # To join network/s
+    # If not specified, the service will join the default network
     networks:
       - <network_name>
 
@@ -70,12 +71,15 @@ volumes:
 
 # Virtual network information
 networks:
-  # Set up here default network if necessary
+  # Defining (or creating if it does not exist) a network
+  <network_name>:
+    # Optional custom name
+    name: <network_custom_name>
+    # Driver is bridge by default, but can be modified
+    driver: bridge
+
+  # Setting up the default network where all the services will join
   default:
     # Joining an existing network
     external:
       name: <pre_existing_network_name>
-
-  # Create a new network
-  <network_name>:
-    name: <network_name>
