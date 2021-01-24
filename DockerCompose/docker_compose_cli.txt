@@ -37,3 +37,4 @@ $ docker-compose rm
 
 Run a one-time command against a service:
 $ docker-compose run <service> <command>
+-e <ENV_VAR=VALUE> flag for setting env variables

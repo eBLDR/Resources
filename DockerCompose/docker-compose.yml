@@ -30,12 +30,13 @@ services:
     environment:
       - ENVIRONMENT=local
 
-    # Or importing a file - .env type
+    # By default, docker-compose will look for a .env file in the project directory
+    # Specifying file name - myenv.env
     env_file:
       - <env_file_path>
 
     # ENV variables can be accessed from docker-compose.yml (and other config
-    # files) using ${<var_name>}
+    # files) using ${<ENV_VAR_NAME>}
 
     # Ports to expose - mapping from container to the outside world
     ports:
