@@ -108,3 +108,7 @@ Patterns:
 ignoreme.txt - specific file
 *.ext - will match all files with the extension
 directory/ - whole directory
+
+KEEP EMPTY DIRECTORIES
+Add a file to the empty directory to be added named:
+.gitkeep
