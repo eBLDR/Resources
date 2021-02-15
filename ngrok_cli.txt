@@ -1,7 +1,7 @@
 NGROK - Public URLs for exposing your local web server.
 
 Config file default location:
-~/<username>/.ngrok2/ngrok.yml
+$HOME/.ngrok2/ngrok.yml
 
 Start a HTTP tunnel forwarding to localhost:<port>
 $ ngrok http <port>
@@ -30,6 +30,7 @@ $ ngrok start <tunnel_name>
 Config file example:
 
 authtoken: 4nq9771bPxe8ctg7LKr_2ClH7Y15Zqe4bWLWF9p
+region: eu
 tunnels:
   my-app:
     proto: http
