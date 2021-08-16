@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+
+  mongodb:
+    image: mongo:4
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: admin
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-volume:/data/db
+
+  app:
+    container_name: app
+    build: service/app
+    image: app
+    env_file:
+      - os.env
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/app
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb-volume:
+
+networks:
+  default:
+    external:
+      name: net

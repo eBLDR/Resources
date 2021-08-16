@@ -1,0 +1,16 @@
+fastapi
+motor
+odmantic
+passlib[bcrypt]
+pydantic
+python-jose[criptography]
+python-multipart
+uvicorn[standard]
+pymongo[srv]
+
+# dev
+httpx
+pytest
+pytest-asyncio
+pytest-cov
+requests
