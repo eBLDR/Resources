@@ -7,11 +7,11 @@ import logging
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 
-from FastAPIProjectLayout.service.app import create_app
-from FastAPIProjectLayout.service.app import settings
-from FastAPIProjectLayout.service.app import close_connection, open_connection
-from FastAPIProjectLayout.service.app.security.jwt_token import Token, create_access_token
-from FastAPIProjectLayout.service.app.security.security import authenticate_user
+from app import create_app
+from app.core.config import settings
+from app.database.engine import close_connection, open_connection
+from app.security.jwt_token import Token, create_access_token
+from app.security.security import authenticate_user
 
 logging.basicConfig(
     filename=settings.LOGS_FILENAME,

@@ -11,7 +11,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - mongodb-volume:/data/db
 
@@ -23,7 +23,7 @@ services:
       - os.env
     command: uvicorn main:app --host 0.0.0.0 --port 8000
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - ./app:/app
     depends_on:
