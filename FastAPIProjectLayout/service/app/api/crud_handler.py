@@ -1,5 +1,5 @@
 """
-CRUD transactions handler.
+CRUD transactions' handler.
 """
 import csv
 import json
@@ -9,7 +9,6 @@ from typing import List, Union
 from bson.objectid import ObjectId
 from fastapi import HTTPException, status
 from fastapi.responses import StreamingResponse
-from odmantic import Model
 
 from app.api.param_validator import FileFormats
 from helpers import util_serializer
@@ -20,7 +19,8 @@ async def _save(
         input_schema,
         get_schema,
         resource_dao,
-        document=False):
+        document=False,
+):
     try:
         return await get_schema.from_document(
             await (

@@ -12,7 +12,7 @@ MODELS = import_module(PATH_TO_MODELS)
 
 def session_manager(
         table_name, values=None, filters=None, create_=False,
-        read_=False, update_=False, delete_=False
+        read_=False, update_=False, delete_=False,
 ):
     """
     Manages database connections.
