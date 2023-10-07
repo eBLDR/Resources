@@ -1,0 +1,14 @@
+asyncpg
+fastapi
+passlib[bcrypt]
+pydantic[dotenv]
+python-jose[criptography]
+python-multipart
+sqlmodel
+uvicorn
+
+# dev
+httpx
+pytest
+pytest-cov
+requests
