@@ -2,28 +2,28 @@
 MAIN_SERVICE_NAME := app
 
 build:
-	docker-compose build
+	docker compose build
 
 build-production:
-	docker-compose build
+	docker compose build
 
 up:
-	docker-compose up
+	docker compose up
 
 up-production:
-	docker-compose up
+	docker compose up
 
 up-d:
-	docker-compose up -d
+	docker compose up -d
 
 stop:
-	docker-compose stop
+	docker compose stop
 
 down:
-	docker-compose down
+	docker compose down
 
 tests:
-	docker-compose run --rm -e TESTING=true $(MAIN_SERVICE_NAME) pytest -v --cov --cov-report term tests/
+	docker compose run --rm -e TESTING=true $(MAIN_SERVICE_NAME) pytest -v --cov --cov-report term tests/
 
 deploy:
 	$(MAKE) down
@@ -32,4 +32,4 @@ deploy:
 	$(MAKE) up-d
 
 db-restore:
-	docker-compose run --rm $(MAIN_SERVICE_NAME) python scripts/restore_data.py
+	docker compose run --rm $(MAIN_SERVICE_NAME) python scripts/restore_data.py
